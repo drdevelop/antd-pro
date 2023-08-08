@@ -13,7 +13,7 @@ jobs:
         persist-credentials: false
 
     - name: install pnpm
-      run: wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
+      run: wget -qO- https://get.pnpm.io/install.sh | sh -
 
     - name: install dependencies
       run: pnpm install
