@@ -15,7 +15,10 @@
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "es",
+    "lib",
+    "package.json",
+    "README.md"
   ],
   "scripts": {
     "test": "node ./__tests__/form.test.js",
