@@ -4,11 +4,6 @@ import { GenerateSW } from 'workbox-webpack-plugin';
 export default defineConfig({
   title: 'antd-pro',
   outputPath: 'docs-dist',
-  mode: 'site',
-  history: {
-    type: 'hash',
-  },
-  monorepoRedirect: {},
   publicPath: process.env.NODE_ENV === 'development' ? '/' : '/antd-pro/',
   chainWebpack(memo) {
     memo.plugin('workbox-webpack-plugin')
