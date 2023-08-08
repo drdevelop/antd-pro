@@ -1,0 +1,16 @@
+{
+  "version": "independent",
+  "npmClient": "pnpm",
+  "packages": ["packages/*"],
+  "command": {
+    "version": {
+      "convertionalCommits": true,
+      "yes": true,
+      "push": false
+    },
+    "bootstrap": {
+      "ignore": "component-*",
+      "npmClientArgs": ["--no-package-lock"]
+    }
+  }
+}

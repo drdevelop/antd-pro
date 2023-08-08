@@ -1,0 +1,59 @@
+# antd-pro-schema-form
+
+## Install
+
+install with npm:
+```
+npm install --save-dev antd-pro-schema-form
+```
+
+install with yarn:
+```
+yarn add antd-pro-schema-form -dev
+```
+
+install with pnpm:
+```
+pnpm add antd-pro-schema-form -dev
+```
+
+## Quickstart
+### normal
+```tsx
+import React from 'react';
+import SchemaForm from 'antd-pro-schema-form';
+
+export default () => {
+const schema = [{
+  fieldName: 'title',
+  label: '标题',
+  type: 'input',
+}];
+
+return <SchemaForm schema={schema} />;
+```
+
+### group schema
+```tsx
+import React from 'react';
+import SchemaForm from 'antd-pro-schema-form';
+
+export default () => {
+  const schema = {
+    title: {
+      fieldName: 'title',
+      label: 'group schema field title',
+      type: 'input',
+    }
+  };
+  const schemaGroups = [{
+    list: [
+      'title',
+    ]
+  }];
+  return <SchemaForm schema={schema} schemaGroups={schemaGroups} />;
+}
+```
+
+## Ducumentation
+see [https://drdevelop.github.io/antd-pro/index.html](https://drdevelop.github.io/antd-pro/index.html)
