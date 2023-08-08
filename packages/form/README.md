@@ -56,4 +56,4 @@ export default () => {
 ```
 
 ## Ducumentation
-see [https://drdevelop.github.io/antd-pro/index.html](https://drdevelop.github.io/antd-pro/index.html)
+see [https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme](https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme)
