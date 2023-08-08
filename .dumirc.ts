@@ -5,6 +5,9 @@ export default defineConfig({
   title: 'antd-pro',
   outputPath: 'docs-dist',
   publicPath: process.env.NODE_ENV === 'development' ? '/' : '/antd-pro/',
+  history: {
+    type: 'hash'
+  },
   chainWebpack(memo) {
     memo.plugin('workbox-webpack-plugin')
       .use(
