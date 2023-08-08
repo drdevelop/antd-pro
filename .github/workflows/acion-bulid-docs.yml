@@ -12,6 +12,12 @@ jobs:
       with:
         persist-credentials: false
 
+    - name: install pnpm
+      run: npm install pnpm
+
+    - name: install dependencies
+      run: pnpm install
+
     - name: Build docs
       run: npm run docs:build
 
