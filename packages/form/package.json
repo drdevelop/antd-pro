@@ -1,9 +1,11 @@
 {
   "name": "antd-pro-schema-form",
-  "version": "1.0.0",
+  "version": "1.0.0-rc.0",
   "description": "> TODO: description",
   "author": "drdevelop <cxd2534118085@163.com>",
-  "homepage": "",
+  "repository": "https://github.com/drdevelop/antd-pro",
+  "homepage": "https://drdevelop.github.io/antd-pro/index.html",
+  "bugs": "https://github.com/drdevelop/antd-pro/issues",
   "license": "ISC",
   "main": "lib/index.js",
   "module": "es/index.js",
