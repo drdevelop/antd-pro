@@ -20,6 +20,6 @@ toc: content
 
 | 解决方案 | reactive | 分组渲染 | 数据多加载模式<br/>（预加载和懒加载） | 性能 | 
 | ----- | ------ | --- | -- | -- |
-| antd-pro-x form（当前） | ✅ | ✅ | ✅ | ⭐️⭐️⭐️ |
+| antd-pro-schema-form（当前） | ✅ | ✅ | ✅ | ⭐️⭐️⭐️ |
 | formily | ❎ | ❎ | ❎ | ⭐️⭐️⭐️⭐️⭐️ |
-| antd pro form | ✅ | ❎ | ❎ | ⭐️⭐️⭐️⭐️ |
+| @ant-design/pro-form | ✅ | ❎ | ❎ | ⭐️⭐️⭐️⭐️ |
