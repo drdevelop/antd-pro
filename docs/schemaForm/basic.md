@@ -47,3 +47,11 @@ toc: content
     return <SchemaForm schema={schema} schemaGroups={schemaGroups} />
   }
 ```
+
+## API
+
+<API
+  id="SchemaForm"
+>
+</API>
+

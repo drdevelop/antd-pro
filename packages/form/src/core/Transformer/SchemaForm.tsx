@@ -5,9 +5,9 @@ import { Props as FieldRenderProps } from '../FieldRender';
 import { GroupRule } from '../../shared/schema';
 import schemaItemToNode from './schemaItemToNode';
 
-interface Props extends Pick<FieldRenderProps, 'components'> {}
+export interface Props extends Pick<FieldRenderProps, 'components'> {}
 
-interface Props extends FormProps {
+export interface Props extends FormProps {
   /** form instance */
   form?: FormInstance;
   schema: { [key: string]: FormItemRenderProps };
@@ -38,7 +38,7 @@ const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => 
   const form = formInstance ? formInstance : innerFormInstance;
 
   const [forceRenderKey, setForceRenderKey] = useState<number>(0);
-
+  console.log('ref', ref);
   useImperativeHandle(ref, () => ({
     forceRefresh: () => setForceRenderKey(oldKey => oldKey++)
   }));
@@ -120,4 +120,4 @@ const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => 
   )
 }
 
-export default SchemaForm;
+export default React.forwardRef(SchemaForm);

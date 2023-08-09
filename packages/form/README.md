@@ -4,6 +4,13 @@ antd-pro-schema-form based Ant Design, quickly generate interactive forms with S
 
 [中文文档](https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme)
 
+## Features
+- Reactive
+- Progressive
+- Schema
+- Group schema
+- Fetch remote data multiple mode
+
 ## Install
 
 install with npm:
