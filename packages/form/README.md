@@ -25,7 +25,7 @@ yarn add antd-pro-schema-form -dev
 
 install with pnpm:
 ```
-pnpm add antd-pro-schema-form -dev
+pnpm add antd-pro-schema-form
 ```
 
 ## Quickstart
