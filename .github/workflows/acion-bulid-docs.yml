@@ -20,8 +20,11 @@ jobs:
     - name: install dependencies
       run: pnpm install
 
+    - name: Build
+      run: pnpm run build
+
     - name: Build docs
-      run: npm run docs:build
+      run: pnpm run docs:build
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
