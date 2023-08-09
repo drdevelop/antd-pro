@@ -1,6 +1,6 @@
 {
   "name": "antd-pro-schema-form",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0-rc.5",
   "description": "> TODO: description",
   "author": "drdevelop <cxd2534118085@163.com>",
   "repository": "https://github.com/drdevelop/antd-pro",
@@ -23,5 +23,15 @@
   "scripts": {
     "test": "node ./__tests__/form.test.js",
     "build": "father build"
-  }
+  },
+  "peerDependencies": {
+    "antd": ">=4.0.0"
+  },
+  "keywords": [
+    "antd",
+    "antd pro",
+    "schema form",
+    "antd pro schema form",
+    "react components"
+  ]
 }

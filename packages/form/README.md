@@ -2,6 +2,8 @@
 
 antd-pro-schema-form based Ant Design, quickly generate interactive forms with Schema configuration.
 
+[中文文档](https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme)
+
 ## Install
 
 install with npm:
@@ -28,7 +30,7 @@ import SchemaForm from 'antd-pro-schema-form';
 export default () => {
 const schema = [{
   fieldName: 'title',
-  label: '标题',
+  label: 'title',
   type: 'input',
 }];
 
