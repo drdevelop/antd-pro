@@ -52,9 +52,9 @@ const FormItemRender: React.FC<Props> = props => {
       components: props.components,
       data: innerData,
       type: props.type,
+      component: props.component,
       ...props.elementSpecProps,
     };
-    console.log('render form item', formItemSpecProps, fieldProps);
     return (
       <Form.Item {...formItemSpecProps}>
         <FieldRender {...fieldProps} />

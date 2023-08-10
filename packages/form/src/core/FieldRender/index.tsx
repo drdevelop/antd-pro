@@ -1,4 +1,4 @@
-import { FormInstance, Input, Radio, Select } from 'antd';
+import { FormInstance } from 'antd';
 import React from 'react';
 import { LabelInValue } from '../../shared/schema';
 import InnerComponents from '../../components';
@@ -60,10 +60,9 @@ const FieldRender: React.FC<Props> = (props) => {
 
   const Field = registryComponents[type];
   if (!Field) {
-    console.error(`component ${type} is not registe`);
+    console.error(`component ${type} is not register`);
     return null;
   }
-  console.log('provideProps', type, provideProps);
 
   return (
     <Field {...provideProps} />
