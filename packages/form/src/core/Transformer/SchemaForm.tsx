@@ -1,19 +1,27 @@
 import React, { ForwardRefRenderFunction, useImperativeHandle, useMemo, useState } from 'react';
 import { Form, FormInstance, FormProps } from 'antd';
-import { Props as FormItemRenderProps } from '../FormItemRender';
+import { Props as SchemaItem } from '../FormItemRender';
 import { Props as FieldRenderProps } from '../FieldRender';
 import { GroupRule } from '../../shared/schema';
 import schemaItemToNode from './schemaItemToNode';
 
 export interface Props extends Pick<FieldRenderProps, 'components'> {}
 
+export interface SchemaMap {
+  [key: string]: SchemaItem;
+}
+
 export interface Props extends FormProps {
   /** form instance */
   form?: FormInstance;
-  schema: { [key: string]: FormItemRenderProps };
+  /** form schema configuration */
+  schema: SchemaMap | SchemaItem[];
+  /** form group schema configuration */
   schemaGroups?: GroupRule[];
+  /** every schema group render */
   groupRender?: GroupRule['render'];
-  groupsRender: (child: React.ReactNode) => React.ReactNode;
+  /** entire schema group render, the param child is all schema render result */
+  groupsRender?: (child: React.ReactNode) => React.ReactNode;
   /** this data will provide to schema */
   globalState?: any;
 }
