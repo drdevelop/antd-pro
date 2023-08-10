@@ -18,7 +18,8 @@
     "es",
     "lib",
     "package.json",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "test": "node ./__tests__/form.test.js",
