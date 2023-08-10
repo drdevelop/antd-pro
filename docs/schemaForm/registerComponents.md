@@ -49,6 +49,11 @@ toc: content
       type: 'radioButton',
       data: options
     }, {
+      fieldName: 'checkbox',
+      label: '多选框',
+      type: 'checkbox',
+      data: options
+    }, {
       fieldName: 'switch',
       label: '开关',
       type: 'switch',
