@@ -10,6 +10,10 @@ toc: content
 ## 普通schema表单
 
 ```tsx
+/**
+ * title: 渲染
+* description: 更全的表单项见[探索更多](#/schema-form/register-components#所有内置组件示例)
+*/
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
@@ -27,7 +31,7 @@ toc: content
 ```tsx
 /**
  * title: schemaGroups表示要将表单schema作为一个字典，里面的字段进行分组渲染
- * description: 注意：此时schema需为object对象形式
+ * description: 注意：此时schema需为object对象形式，[点我探索更多](#/schema-form/group-schema#schemaformprops)
  */
   import SchemaForm from 'antd-pro-schema-form';
 
@@ -47,7 +51,6 @@ toc: content
     return <SchemaForm schema={schema} schemaGroups={schemaGroups} />
   }
 ```
-了解更多见[详细](/schema-form/group-schema#schemaformprops)
 
 ## API
 ### SchemaFormProps
