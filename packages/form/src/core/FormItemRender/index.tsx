@@ -49,6 +49,8 @@ const FormItemRender: React.FC<Props> = props => {
       dependencies: props.dependencies,
     };
     const fieldProps = {
+      style: props.style,
+      className: props.className,
       components: props.components,
       data: innerData,
       type: props.type,
