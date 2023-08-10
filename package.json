@@ -8,8 +8,9 @@
     "dev": "WATCH_IGNORED=none DUMI_CACHE=none dumi dev",
     "build": "lerna run build",
     "docs:build": "dumi build",
+    "version": "lerna version --conventional-commits",
     "pub": "lerna exec -- npm publish",
-    "release": "lerna version --conventional-commits",
+    "release": "npm run build && npm run version && npm run pub",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
