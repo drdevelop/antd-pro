@@ -1,5 +1,6 @@
 import { DatePicker, Input, Select, Switch, TreeSelect } from 'antd';
 import ProRadio from './ProRadio';
+import ProCheckbox from './ProCheckbox';
 import withFieldDefault from './withFieldDefault';
 import { FieldProps } from '../shared/schema';
 import withFieldMapToProps from './withFieldMapToProps';
@@ -61,6 +62,7 @@ const InnerComponents = {
   multipleSelect: withFieldMapToProps(ProMultipleSelect),
   radio: withFieldMapToProps(ProRadio),
   radioButton: withFieldMapToProps(ProRadioButton),
+  checkbox: withFieldMapToProps(ProCheckbox),
   treeSelect: withFieldMapToProps(ProTreeSelect),
   datePicker: withFieldMapToProps(ProDatePicker),
   dateRangePicker: withFieldMapToProps(ProDateRangePicker),
