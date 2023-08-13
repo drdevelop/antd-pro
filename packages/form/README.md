@@ -2,7 +2,7 @@
 
 antd-pro-schema-form based Ant Design, quickly generate interactive forms with Schema configuration.
 
-[中文文档](https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme)
+[English](https://drdevelop.github.io/antd-pro/index.html#/en/schema-form/readme) | [中文文档](https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme)
 
 ## Features
 - Reactive
