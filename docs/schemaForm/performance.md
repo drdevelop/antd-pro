@@ -1,9 +1,8 @@
 ---
 nav:
   title: schema表单
-group:
-  title: 性能优化
-  order: 6
+title: 性能优化
+order: 6
 toc: content
 ---
 

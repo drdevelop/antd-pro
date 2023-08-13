@@ -1,7 +1,7 @@
 ---
 nav:
   title: schema表单
-title: 表单联动
+title: Linkage
 order: 5
 toc: content
 ---

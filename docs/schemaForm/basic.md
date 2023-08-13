@@ -1,9 +1,8 @@
 ---
 nav:
   title: schema表单
-group:
-  title: 基础使用
-  order: 1
+title: 基础用法
+order: 1
 toc: content
 ---
 

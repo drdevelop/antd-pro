@@ -1,9 +1,8 @@
 ---
 nav:
   title: schema表单
-group:
-  title: 分组schema表单
-  order: 2
+title: 分组schema表单
+order: 2
 toc: content
 ---
 

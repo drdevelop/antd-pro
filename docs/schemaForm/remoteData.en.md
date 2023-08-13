@@ -1,12 +1,12 @@
 ---
 nav:
-  title: schema表单
-title: 远程数据获取
+  title: schema form
+title: Fetch Remote Data
 order: 4
 toc: content
 ---
 
-## schema表单远程数据获取
+## schema form fetch remote data
 
 ```tsx
   import SchemaForm from 'antd-pro-schema-form';
@@ -14,14 +14,14 @@ toc: content
   export default () => {
     const schema = [{
       fieldName: 'option',
-      label: '选择',
+      label: 'select',
       type: 'select',
       remoteData: async () => {
         return [{
-          label: '选项1',
+          label: 'option1',
           value: 1,
         }, {
-          label: '选项2',
+          label: 'option2',
           value: 2,
         }]
       }
@@ -30,7 +30,7 @@ toc: content
   }
 ```
 
-## 表单项数据预加载
+## form item data preload
 
 ```tsx
   import SchemaForm from 'antd-pro-schema-form';
@@ -38,18 +38,18 @@ toc: content
   export default () => {
     const schema = [{
       fieldName: 'versionType',
-      label: '版本',
+      label: 'version',
       type: 'radio',
       data: [{
-        label: '不限',
+        label: 'nolimit',
         value: 1,
       }, {
-        label: '自定义',
+        label: 'custom',
         value: 2,
       }]
     }, {
       fieldName: 'option',
-      label: '选择',
+      label: 'select',
       type: 'select',
       dependencies: ['versionType'],
       component: (form) => {
@@ -60,10 +60,10 @@ toc: content
       },
       remoteData: async () => {
         return [{
-          label: '选项1',
+          label: 'option1',
           value: 1,
         }, {
-          label: '选项2',
+          label: 'option2',
           value: 2,
         }]
       }
@@ -72,7 +72,7 @@ toc: content
   }
 ```
 
-## 表单项数据懒加载
+## form item data lazyload
 
 ```tsx
   import SchemaForm from 'antd-pro-schema-form';
@@ -80,18 +80,18 @@ toc: content
   export default () => {
     const schema = [{
       fieldName: 'versionType',
-      label: '版本',
+      label: 'version',
       type: 'radio',
       data: [{
-        label: '不限',
+        label: 'nolimit',
         value: 1,
       }, {
-        label: '自定义',
+        label: 'custom',
         value: 2,
       }]
     }, {
       fieldName: 'option',
-      label: '选择',
+      label: 'select',
       type: 'select',
       dependencies: ['versionType'],
       component: (form) => {
@@ -100,10 +100,10 @@ toc: content
           ? {
             remoteData: async () => {
               return [{
-                label: '选项1',
+                label: 'option1',
                 value: 1,
               }, {
-                label: '选项2',
+                label: 'option2',
                 value: 2,
               }]
             }

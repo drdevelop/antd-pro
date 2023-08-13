@@ -1,9 +1,8 @@
 ---
 nav:
   title: schema表单
-group:
-  title: 概述
-  order: 0
+title: 概述
+order: 0
 toc: content
 ---
 

@@ -5,6 +5,15 @@ export default defineConfig({
   title: 'antd-pro',
   outputPath: 'docs-dist',
   publicPath: process.env.NODE_ENV === 'development' ? '/' : '/antd-pro/',
+  locales: [
+    { id: 'zh-CN', name: '中文' },
+    { id: 'en', name: 'EN' },
+  ],
+  themeConfig: {
+    socialLinks: {
+      github: 'https://github.com/drdevelop/antd-pro',
+    },
+  },
   history: {
     type: 'hash'
   },
