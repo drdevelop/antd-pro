@@ -26,6 +26,9 @@ jobs:
     - name: Build docs
       run: pnpm run docs:build
 
+    - name: Publish
+      run: pnpm run pub
+
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
