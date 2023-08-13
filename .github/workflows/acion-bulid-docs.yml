@@ -32,7 +32,7 @@ jobs:
       run: pnpm run docs:build
 
     - name: Push changes
-      uses: ad-m/github-push-action@main
+      uses: ad-m/github-push-action@mater
       with:
         github_token: ${{ secrets.ACCESS_TOKEN }}
 
