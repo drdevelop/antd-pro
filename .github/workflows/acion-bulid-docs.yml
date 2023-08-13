@@ -31,6 +31,10 @@ jobs:
     - name: Build docs
       run: pnpm run docs:build
 
+    - name: Config git
+      run: |
+        git config --local user.email "cxd2534118085@163.com"
+        git config --local user.name "drdevelop"
     - name: Publish
       run: pnpm run pub
       env:
