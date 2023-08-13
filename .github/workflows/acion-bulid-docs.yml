@@ -12,6 +12,11 @@ jobs:
       with:
         persist-credentials: false
 
+    - uses: actions/setup-node/@v3
+      with:
+        node-version: '16.x'
+        registry-url: 'https://registry.npmjs.org'
+
     - name: install pnpm
       uses: pnpm/action-setup@v2
       with:
