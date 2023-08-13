@@ -9,7 +9,7 @@
     "build": "lerna run build",
     "docs:build": "dumi build",
     "version": "lerna version --conventional-commits",
-    "pub": "git push origin --tags && lerna exec -- npm publish",
+    "pub": "lerna exec -- npm publish",
     "release": "npm run build && npm run version && npm run pub",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -31,6 +31,11 @@ jobs:
     - name: Build docs
       run: pnpm run docs:build
 
+    - name: Push changes
+      uses: ad-m/github-push-action@main
+      with:
+        github_token: ${{ secrets.ACCESS_TOKEN }}
+
     - name: Publish
       run: pnpm run pub
       env:
