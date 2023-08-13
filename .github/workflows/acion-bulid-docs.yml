@@ -31,15 +31,15 @@ jobs:
     - name: Build docs
       run: pnpm run docs:build
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.ACCESS_TOKEN }}
-
     - name: Publish
       run: pnpm run pub
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.ACCESS_TOKEN }}
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
