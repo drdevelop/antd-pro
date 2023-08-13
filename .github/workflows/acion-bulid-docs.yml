@@ -28,6 +28,8 @@ jobs:
 
     - name: Publish
       run: pnpm run pub
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
