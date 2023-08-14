@@ -7,7 +7,6 @@ export function registerComponent(component) {
 }
 
 export function registerComponents(components) {
-  console.log('global registerComponents', components);
   Object.assign(InnerComponents, components);
 }
 

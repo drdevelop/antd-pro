@@ -10,7 +10,7 @@
     "docs:build": "dumi build",
     "version": "lerna version --conventional-commits",
     "pub": "lerna exec -- npm publish",
-    "release": "npm run build && npm run version",
+    "release": "npm run build && npm run version && npm run pub",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

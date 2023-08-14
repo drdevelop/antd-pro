@@ -102,7 +102,6 @@ const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => 
   const renderGroups = () => {
     const schemaGroups = getSchemaGroups(defineSchemaGroups);
     const groups = schemaGroups?.map(renderGroup);
-    console.log('groups', groups);
     return groups;
   }
 

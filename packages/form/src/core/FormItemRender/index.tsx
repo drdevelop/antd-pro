@@ -13,13 +13,10 @@ export interface Props extends FieldRenderProps {
 const FormItemRender: React.FC<Props> = props => {
   const { dependencies } = props;
 
-  console.log('FormItemRender', props);
-
   const [innerData, setInnerData] = useState<LabelInValue>(props.data);
 
   const fetchRemoteData = async (request: Props['remoteData'], keyword?: string) => {
     const data = await request!(keyword);
-    console.log('fetchRemoteData', data);
     setInnerData(data);
   }
 
