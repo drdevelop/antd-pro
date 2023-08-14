@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.22](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.21...antd-pro-schema-form@1.0.0-rc.22) (2023-08-14)
+
+
+### Bug Fixes
+
+* remove console.log ([34b910b](https://github.com/drdevelop/antd-pro/commit/34b910b92619e30249144d5606d1d8af2f899ac1))
+
+
+
+
+
 # [1.0.0-rc.21](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.20...antd-pro-schema-form@1.0.0-rc.21) (2023-08-14)
 
 
