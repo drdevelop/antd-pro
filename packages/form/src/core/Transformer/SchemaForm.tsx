@@ -46,7 +46,7 @@ const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => 
   const form = formInstance ? formInstance : innerFormInstance;
 
   const [forceRenderKey, setForceRenderKey] = useState<number>(0);
-  console.log('ref', ref);
+
   useImperativeHandle(ref, () => ({
     forceRefresh: () => setForceRenderKey(oldKey => oldKey++)
   }));
@@ -92,7 +92,6 @@ const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => 
 
   const renderGroup = (group: GroupRule) => {
     const render = group.render || groupRender || defaultGroupRender;
-    console.log('renderGroup', group);
     return render(
       renderFormItemList(group),
       group,
