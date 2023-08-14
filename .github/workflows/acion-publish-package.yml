@@ -1,4 +1,4 @@
-name: GitHub Actions Build Docs
+name: GitHub Actions Publish package
 on:
   pull_request:
     branches:
@@ -15,6 +15,16 @@ jobs:
       with:
         persist-credentials: false
 
+    - uses: actions/setup-node/@v3
+      with:
+        node-version: '16.x'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Config git
+      run: |
+        git config --local user.email "cxd2534118085@163.com"
+        git config --local user.name "drdevelop"
+
     - name: install pnpm
       uses: pnpm/action-setup@v2
       with:
@@ -23,20 +33,13 @@ jobs:
     - name: install dependencies
       run: pnpm install
 
-    - name: Build
-      run: pnpm run build
-
-    - name: Build docs
-      run: pnpm run docs:build
+    - name: Release
+      run: pnpm run release
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+        GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.ACCESS_TOKEN }}
-
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: docs-dist
