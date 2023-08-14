@@ -33,10 +33,11 @@ jobs:
     - name: install dependencies
       run: pnpm install
 
-    - name: Build and Publish
+    - name: Release
       run: pnpm run release
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+        GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
     - name: Push changes
       uses: ad-m/github-push-action@master
