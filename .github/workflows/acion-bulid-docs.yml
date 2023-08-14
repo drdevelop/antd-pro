@@ -6,7 +6,7 @@ on:
     types:
       - closed
 jobs:
-  build-and-deploy-docs:
+  deploy-docs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
