@@ -19,37 +19,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package antd-pro-schema-form
 
-
-
-
-
 # 1.0.0-rc.11 (2023-08-13)
 
 **Note:** Version bump only for package antd-pro-schema-form
 
-
-
-
-
 # [1.0.0-rc.10](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.9...antd-pro-schema-form@1.0.0-rc.10) (2023-08-10)
-
 
 ### Bug Fixes
 
 * schema set properties 'style'、'className' not effective ([bdd3e21](https://github.com/drdevelop/antd-pro/commit/bdd3e21816824002acfbf92ee5c63ba0057eb40d))
 * schema set type as custom，pass component not shown on screen ([99ee854](https://github.com/drdevelop/antd-pro/commit/99ee8542cc063d10da70a32f2265b4f503701551))
 
-
 ### Features
 
 * add checkbox type for schema item ([28d1a0b](https://github.com/drdevelop/antd-pro/commit/28d1a0b23d8da8d5de04a5baa92c456ab5b48225))
 
-
-
-
-
 # 1.0.0-rc.9 (2023-08-10)
-
 
 ### Bug Fixes
 
