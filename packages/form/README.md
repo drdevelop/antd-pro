@@ -68,3 +68,7 @@ export default () => {
 
 ## Ducumentation
 see [https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme](https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme)
+
+## Roadmap 2023-08
+### Convert form item value
+Not only Provide schema item fission function for form item when initialize formValues, but also provide schema item fusion function for form item when submit formValues to server.
