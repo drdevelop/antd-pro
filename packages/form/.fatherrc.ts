@@ -11,7 +11,4 @@ export default defineConfig({
     input: 'src',
     output: 'lib',
   },
-  // prebundle: {
-  //   deps: ['shared'],
-  // }
 })
