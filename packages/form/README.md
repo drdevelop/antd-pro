@@ -66,6 +66,50 @@ export default () => {
 }
 ```
 
+## Advanced
+```tsx
+  import React, { useRef, useEffect } from 'react';
+  import SchemaForm from 'antd-pro-schema-form';
+  import dayjs from 'dayjs';
+  import { Button, Form } from 'antd';
+
+  export default () => {
+    const formRef = useRef();
+
+    const schema = [{
+      fieldName: 'date',
+      label: 'date',
+      type: 'datePicker',
+      fusion(value) {
+        // transform value when setFieldsValue
+        return dayjs(value);
+      },
+      fission(value) {
+        // transform value when form submit or getFieldsValue
+        return value.format('YYYY-MM-DD HH:mm:ss');
+      }
+    }];
+
+    useEffect(() => {
+      if (!formRef.current) return;
+      formRef.current.setFieldsValue({
+        date: '2023-08-08',
+      })
+    }, [formRef]);
+
+    const submit = () => {
+      // the same as formInstance.getFieldsValue()
+      alert(JSON.stringify(formRef.current.getFieldsValue()));
+    };
+
+    return (
+      <>
+        <SchemaForm enableValueAtomize ref={formRef} schema={schema} />
+        <Button type="primary" onClick={submit}>submit</Button>
+      </>
+    )
+  }
+```
 ## Ducumentation
 see [https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme](https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme)
 
