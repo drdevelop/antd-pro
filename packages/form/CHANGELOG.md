@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.26](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.25...antd-pro-schema-form@1.0.0-rc.26) (2023-08-18)
+
+
+### Bug Fixes
+
+* export RefCurrent type ([662e97b](https://github.com/drdevelop/antd-pro/commit/662e97bc0d8cc7df1179a514568d6cb1a35101fd))
+
+
+
+
+
 # [1.0.0-rc.25](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.24...antd-pro-schema-form@1.0.0-rc.25) (2023-08-18)
 
 **Note:** Version bump only for package antd-pro-schema-form
