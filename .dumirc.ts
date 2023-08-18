@@ -17,9 +17,11 @@ export default defineConfig({
   },
   // let fast debug packages if modify source code，
   // path is source code entry with current package
-  alias: {
-    'antd-pro-schema-form': path.join(__dirname, './packages/form/src/index.ts'),
-  },
+  alias: process.env.NODE_ENV === 'development'
+    ? {
+      'antd-pro-schema-form': path.join(__dirname, './packages/form/src/index.ts'),
+    }
+    : {},
   history: {
     type: 'hash'
   },
