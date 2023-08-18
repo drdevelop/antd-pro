@@ -10,13 +10,22 @@ export interface Props {
   fieldName: string;
   /** display name */
   label?: string;
+  /**
+   * component type
+   */
   type: keyof typeof InnerComponents
     | 'custom';
   component?: React.ReactNode | ((form: FormInstance) => any);
   disabled?: boolean;
   value?: any;
   onChange?: (data: any) => void;
+  /**
+   * provide data to component
+   */
   data?: LabelInValue[];
+  /**
+   * form item child component extra props
+   */
   elementSpecProps?: any;
   /** registe components */
   components?: { [key: string]: React.ReactNode; };
