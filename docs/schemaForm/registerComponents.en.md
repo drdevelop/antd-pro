@@ -1,7 +1,7 @@
 ---
 nav:
   title: schema form
-title: register component
+title: Register component
 order: 3
 toc: content
 ---

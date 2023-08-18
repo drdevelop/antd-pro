@@ -1,28 +1,29 @@
-import React, { ForwardRefRenderFunction, useImperativeHandle, useMemo, useState } from 'react';
+import React, { ForwardRefRenderFunction, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { Form, FormInstance, FormProps } from 'antd';
-import { Props as SchemaItem } from '../FormItemRender';
 import { Props as FieldRenderProps } from '../FieldRender';
 import { GroupRule } from '../../shared/schema';
 import schemaItemToNode from './schemaItemToNode';
+import { Schema } from '../types';
+import reflectFormInstance from '../Decorator/reflectFormInstance';
 
 export interface Props extends Pick<FieldRenderProps, 'components'> {}
 
-export interface SchemaMap {
-  [key: string]: SchemaItem;
-}
-
 export interface Props extends FormProps {
+  /**
+   * enable convert value when init or submit
+   */
+  enableValueAtomize?: boolean;
   /** form instance */
   form?: FormInstance;
   /** form schema configuration */
-  schema: SchemaMap | SchemaItem[];
+  schema: Schema;
   /** form group schema configuration */
   schemaGroups?: GroupRule[];
   /** every schema group render */
   groupRender?: GroupRule['render'];
   /** entire schema group render, the param child is all schema render result */
   groupsRender?: (child: React.ReactNode) => React.ReactNode;
-  /** this data will provide to schema */
+  /** this data will be provided to schema */
   globalState?: any;
 }
 
@@ -32,7 +33,8 @@ export interface RefCurrent {
 
 const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => {
   const {
-    form: formInstance,
+    enableValueAtomize,
+    form: outerformInstance,
     components,
     schema,
     schemaGroups: defineSchemaGroups,
@@ -42,13 +44,26 @@ const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => 
     ...restFormProps
   } = props;
 
-  const [innerFormInstance] = Form.useForm();
-  const form = formInstance ? formInstance : innerFormInstance;
+  const [innerFormInstance] = Form.useForm(enableValueAtomize ? undefined : outerformInstance);
+  // resemble double cache mechanism
+  const shadowFormRef = useRef<FormInstance>(
+    enableValueAtomize
+      ? outerformInstance || {} as FormInstance
+      : innerFormInstance
+  );
+  const decorateRef = useRef<boolean>(false);
+
+  if (enableValueAtomize && !decorateRef.current) {
+    // enable value fusion and fission ability
+    decorateRef.current = true;
+    reflectFormInstance(shadowFormRef.current, innerFormInstance, schema);
+  }
 
   const [forceRenderKey, setForceRenderKey] = useState<number>(0);
 
   useImperativeHandle(ref, () => ({
-    forceRefresh: () => setForceRenderKey(oldKey => oldKey++)
+    forceRefresh: () => setForceRenderKey(oldKey => oldKey++),
+    ...shadowFormRef.current,
   }));
 
   const schemaDict = useMemo(() => {
@@ -115,7 +130,7 @@ const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => 
 
   return (
     <Form
-      form={form}
+      form={innerFormInstance}
       {...restFormProps}
     >
       <>

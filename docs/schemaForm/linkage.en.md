@@ -1,6 +1,7 @@
 ---
 nav:
   title: schema表单
+group: Advanced
 title: Linkage
 order: 5
 toc: content

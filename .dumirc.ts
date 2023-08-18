@@ -1,5 +1,6 @@
 import { defineConfig } from 'dumi';
 import { GenerateSW } from 'workbox-webpack-plugin';
+import path from 'path';
 
 export default defineConfig({
   title: 'antd-pro',
@@ -13,6 +14,11 @@ export default defineConfig({
     socialLinks: {
       github: 'https://github.com/drdevelop/antd-pro',
     },
+  },
+  // let fast debug packages if modify source code，
+  // path is source code entry with current package
+  alias: {
+    'antd-pro-schema-form': path.join(__dirname, './packages/form/src/index.ts'),
   },
   history: {
     type: 'hash'
@@ -34,4 +40,5 @@ export default defineConfig({
         }]
       );
   },
+  // mfsu: false,
 })

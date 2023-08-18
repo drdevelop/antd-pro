@@ -1,6 +1,7 @@
 ---
 nav:
   title: schema表单
+group: 进阶使用
 title: 表单联动
 order: 5
 toc: content

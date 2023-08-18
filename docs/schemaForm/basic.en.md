@@ -77,3 +77,5 @@ toc: content
 | remoteData | function to fetch server data | `(keyword?: string) => {label: string; value: any;}[]` | `--` |
 | mapStateToSchema | using the GlobalState of SchemeFormProps | `(globalState: PlainObject) => Partial<SchemaItem>` | `--` |
 | formItemSpecProps | antd form item props<br />(pay attention to distinguishing elementSpecProps) | `FormItemProps` | `--` |
+| fusion | convert form item value when form initialize，need return formated value | `(value: any) => any` | `--` |
+| fission | convert form item value when form submit，need return formated value | `(value: any) => any` | `--` |

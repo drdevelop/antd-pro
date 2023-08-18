@@ -77,3 +77,5 @@ toc: content
 | remoteData | 远程数据获取函数 | `(keyword?: string) => {label: string; value: any;}[]` | `--` |
 | mapStateToSchema | 将SchemaFormProps的globalState进行使用 | `(globalState: PlainObject) => Partial<SchemaItem>` | `--` |
 | formItemSpecProps | antd表单项props<br />(注意区分elementSpecProps) | `FormItemProps` | `--` |
+| fusion | 原子聚变<br />(数据初始化时格式化表单项值value，需返回格式化后的值) | `(value: any) => any` | `--` |
+| fission | 原子裂变<br />(提交表单时格式化表单项值value，需返回格式化后的值) | `(value: any) => any` | `--` |
