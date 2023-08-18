@@ -22,14 +22,14 @@ export interface Props extends FieldRenderProps {
   formItemSpecProps?: FormItemProps;
   /**
    * format value when initialize value
-   * for example: transform 'YYYY-MM-DD hh:mm:ss' to moment date
+   * for example: transform 'YYYY-MM-DD hh:mm:ss' to dayjs date
    * @param value init value
    * @returns value after format, usually it is can be used Form Item Component
    */
   fusion?: (value: any) => any;
   /**
    * format value when submit form
-   * for example: transform moment date to 'YYYY-MM-DD hh:mm:ss'
+   * for example: transform dayjs date to 'YYYY-MM-DD hh:mm:ss'
    * @param value form item value
    * @returns value after format, usually it is accoding to server specifications
    */

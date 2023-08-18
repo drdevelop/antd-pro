@@ -12,11 +12,11 @@ toc: content
 ```tsx
 /**
  * title: 通过enableValueAtomize开关开启表单项值转换能力
- * description: 通过schema的`fusion`函数初始化时将字符串转换成表单项要求的moment时间对象
+ * description: 通过schema的`fusion`函数初始化时将字符串转换成表单项要求的dayjs时间对象
  */
   import React, { useRef, useEffect } from 'react';
   import SchemaForm from 'antd-pro-schema-form';
-  import moment from 'moment';
+  import dayjs from 'dayjs';
 
   export default () => {
     const formRef = useRef();
@@ -26,7 +26,7 @@ toc: content
       label: '时间',
       type: 'datePicker',
       fusion(value) {
-        return moment(value);
+        return dayjs(value);
       }
     }]
 
@@ -34,7 +34,7 @@ toc: content
       if (!formRef.current) return;
       console.log('current', formRef.current);
       formRef.current.setFieldsValue({
-        date: '2023-07-01',
+        date: '2023-08-08',
       })
     }, [formRef])
     return <SchemaForm enableValueAtomize schema={schema} ref={formRef} />
@@ -50,7 +50,7 @@ toc: content
  */
   import React, { useRef, useEffect } from 'react';
   import SchemaForm from 'antd-pro-schema-form';
-  import moment from 'moment';
+  import dayjs from 'dayjs';
   import { Button, Form } from 'antd';
 
   export default () => {
@@ -63,7 +63,7 @@ toc: content
       label: '时间',
       type: 'datePicker',
       fission(value) {
-        return moment(value).format('YYYY-MM-DD hh:mm:ss');
+        return value.format('YYYY-MM-DD HH:mm:ss');
       }
     }];
 

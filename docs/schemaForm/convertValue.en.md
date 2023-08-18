@@ -16,7 +16,7 @@ toc: content
  */
   import React, { useRef, useEffect } from 'react';
   import SchemaForm from 'antd-pro-schema-form';
-  import moment from 'moment';
+  import dayjs from 'dayjs';
 
   export default () => {
     const formRef = useRef();
@@ -26,14 +26,14 @@ toc: content
       label: 'date',
       type: 'datePicker',
       fusion(value) {
-        return moment(value);
+        return dayjs(value);
       }
     }]
 
     useEffect(() => {
       if (!formRef.current) return;
       formRef.current.setFieldsValue({
-        date: '2023-07-01',
+        date: '2023-08-08',
       })
     }, [formRef])
     return <SchemaForm enableValueAtomize schema={schema} ref={formRef} />
@@ -49,7 +49,7 @@ toc: content
  */
   import React, { useRef, useEffect } from 'react';
   import SchemaForm from 'antd-pro-schema-form';
-  import moment from 'moment';
+  import dayjs from 'dayjs';
   import { Button, Form } from 'antd';
 
   export default () => {
@@ -62,7 +62,7 @@ toc: content
       label: 'date',
       type: 'datePicker',
       fission(value) {
-        return moment(value).format('YYYY-MM-DD hh:mm:ss');
+        return value.format('YYYY-MM-DD HH:mm:ss');
       }
     }];
 
@@ -74,7 +74,7 @@ toc: content
     return (
       <>
         <SchemaForm enableValueAtomize ref={formRef} form={formInstance} schema={schema} />
-        <Button type="primary" onClick={submit}>提交</Button>
+        <Button type="primary" onClick={submit}>submit</Button>
       </>
     )
   }
