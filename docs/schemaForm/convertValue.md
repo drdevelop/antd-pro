@@ -63,7 +63,7 @@ toc: content
       label: '时间',
       type: 'datePicker',
       fission(value) {
-        return moment(value).format('YYYY-MM-DD hh:mm:ss');
+        return value.format('YYYY-MM-DD HH:mm:ss');
       }
     }];
 
