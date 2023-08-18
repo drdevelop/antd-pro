@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.23](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.22...antd-pro-schema-form@1.0.0-rc.23) (2023-08-18)
+
+
+### Features
+
+* add convert form item value ability ([8961318](https://github.com/drdevelop/antd-pro/commit/8961318d5f7564f0bea15f6fb13ff589101ad662))
+
+
+
+
+
 # [1.0.0-rc.22](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.21...antd-pro-schema-form@1.0.0-rc.22) (2023-08-14)
 
 
