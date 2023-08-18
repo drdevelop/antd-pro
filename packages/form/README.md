@@ -67,6 +67,7 @@ export default () => {
 ```
 
 ## Advanced
+### Convert form item value when initialize or submit
 ```tsx
   import React, { useRef, useEffect } from 'react';
   import SchemaForm from 'antd-pro-schema-form';
