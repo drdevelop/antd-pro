@@ -70,12 +70,12 @@ export default () => {
 ### Convert form item value when initialize or submit
 ```tsx
   import React, { useRef, useEffect } from 'react';
-  import SchemaForm from 'antd-pro-schema-form';
+  import SchemaForm, { RefCurrent } from 'antd-pro-schema-form';
   import dayjs from 'dayjs';
   import { Button, Form } from 'antd';
 
   export default () => {
-    const formRef = useRef();
+    const formRef = useRef<RefCurrent>();
 
     const schema = [{
       fieldName: 'date',

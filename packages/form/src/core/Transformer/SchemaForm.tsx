@@ -27,7 +27,10 @@ export interface Props extends FormProps {
   globalState?: any;
 }
 
-export interface RefCurrent {
+export interface RefCurrent extends FormInstance {
+  /**
+   * force rerender schema form
+   */
   forceRefresh: () => void;
 }
 
