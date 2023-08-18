@@ -1,3 +1,3 @@
-export { default } from './core';
+export { default, RefCurrent } from './core';
 
 export { registerComponent, registerComponents } from './components';

@@ -1,1 +1,1 @@
-export { default } from './Transformer/SchemaForm';
+export { default, RefCurrent } from './Transformer/SchemaForm';

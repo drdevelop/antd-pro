@@ -1,5 +1,7 @@
 # antd-pro-schema-form
 
+🎉🎉🎉 form item value atomize released!!! See [Detail](https://drdevelop.github.io/antd-pro/index.html#/en/schema-form/convert-value)
+
 antd-pro-schema-form based Ant Design, quickly generate interactive forms with Schema configuration.
 
 [English](https://drdevelop.github.io/antd-pro/index.html#/en/schema-form/readme) | [中文文档](https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme)
@@ -70,12 +72,12 @@ export default () => {
 ### Convert form item value when initialize or submit
 ```tsx
   import React, { useRef, useEffect } from 'react';
-  import SchemaForm from 'antd-pro-schema-form';
+  import SchemaForm, { RefCurrent } from 'antd-pro-schema-form';
   import dayjs from 'dayjs';
   import { Button, Form } from 'antd';
 
   export default () => {
-    const formRef = useRef();
+    const formRef = useRef<RefCurrent>();
 
     const schema = [{
       fieldName: 'date',
@@ -113,7 +115,3 @@ export default () => {
 ```
 ## Ducumentation
 see [https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme](https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme)
-
-## Roadmap 2023-08
-### Convert form item value
-Not only Provide schema item fission function for form item when initialize formValues, but also provide schema item fusion function for form item when submit formValues to server.
