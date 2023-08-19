@@ -12,6 +12,7 @@ antd-pro-schema-form based Ant Design, quickly generate interactive forms with S
 - Schema
 - Group schema
 - Fetch remote data multiple mode
+- Fusion and fission value
 
 ## Install
 
