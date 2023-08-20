@@ -15,7 +15,7 @@ const FieldRadio: React.FC<FieldProps> = (props) => {
     >
       {
         data?.map(option => (
-          <Checkbox value={option.value}>{option.label}</Checkbox>
+          <Checkbox value={option.value} key={option.value}>{option.label}</Checkbox>
         ))
       }
     </Checkbox.Group>
