@@ -28,8 +28,8 @@ toc: content
       type: 'select',
       data: options
     }, {
-      fieldName: 'select',
-      label: 'select',
+      fieldName: 'multipleSelect',
+      label: 'multipleSelect',
       type: 'multipleSelect',
       data: options
     }, {
