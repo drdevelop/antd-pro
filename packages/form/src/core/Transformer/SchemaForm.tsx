@@ -65,7 +65,7 @@ const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => 
   const [forceRenderKey, setForceRenderKey] = useState<number>(0);
 
   useImperativeHandle(ref, () => ({
-    forceRefresh: () => setForceRenderKey(oldKey => oldKey++),
+    forceRefresh: () => setForceRenderKey(oldKey => ++oldKey),
     ...shadowFormRef.current,
   }));
 

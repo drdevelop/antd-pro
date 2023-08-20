@@ -34,6 +34,9 @@ jobs:
     - name: install dependencies
       run: pnpm install
 
+    - name: test
+      run: pnpm run test
+
     - name: Release
       run: pnpm run release
       env:

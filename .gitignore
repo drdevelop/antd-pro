@@ -6,3 +6,4 @@ dist
 docs-dist
 .dumi/tmp/*
 .dumi/tmp-production/*
+coverage
