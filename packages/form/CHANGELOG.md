@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.31](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.30...antd-pro-schema-form@1.0.0-rc.31) (2023-08-20)
+
+
+### Features
+
+* add testcase, the coverage more than 99%+ ([d1badad](https://github.com/drdevelop/antd-pro/commit/d1badad9c95c6dc6af15a64f18c143e66ee481f2))
+
+
+
+
+
 # [1.0.0-rc.30](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.29...antd-pro-schema-form@1.0.0-rc.30) (2023-08-20)
 
 
