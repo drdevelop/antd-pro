@@ -7,14 +7,14 @@ import withFieldMapToProps from './withFieldMapToProps';
 
 const ProSelect = withFieldDefault(Select, (props: FieldProps) => ({
   showSearch: true,
-  filterOption: (input, option: any) => option?.children?.toLowerCase().indexOf(input.toLowerCase()) >= 0,
+  filterOption: (input, option: any) => option?.label?.toLowerCase().indexOf(input.toLowerCase()) >= 0,
   options: props.data,
 }));
 
 const ProMultipleSelect = withFieldDefault(Select, (props: FieldProps) => ({
   showSearch: true,
   mode: 'multiple',
-  filterOption: (input, option: any) => option?.children?.toLowerCase().indexOf(input.toLowerCase()) >= 0,
+  filterOption: (input, option: any) => option?.label?.toLowerCase().indexOf(input.toLowerCase()) >= 0,
   options: props.data,
 }));
 
