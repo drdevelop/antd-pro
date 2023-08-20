@@ -13,6 +13,7 @@ antd-pro-schema-form based Ant Design, quickly generate interactive forms with S
 - Group schema
 - Fetch remote data multiple mode
 - Fusion and fission value
+- test case coverage 99%+
 
 ## Install
 
@@ -114,10 +115,6 @@ export default () => {
     )
   }
 ```
-
-## Report
-### Coverage
-[!image]()
 
 ## Ducumentation
 see [https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme](https://drdevelop.github.io/antd-pro/index.html#/schema-form/readme)
