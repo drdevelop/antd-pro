@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.29](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.28...antd-pro-schema-form@1.0.0-rc.29) (2023-08-20)
+
+
+### Bug Fixes
+
+* schema type: 'radioButton' render as unexpected Switch ([b4a6608](https://github.com/drdevelop/antd-pro/commit/b4a66087f69b78437de4dec78153134817579428))
+
+
+### Features
+
+* export type SchemaFormProps ([6f764f9](https://github.com/drdevelop/antd-pro/commit/6f764f9bd897eb25427ffb9f0dd41549b0d1b798))
+
+
+
+
+
 # [1.0.0-rc.28](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.27...antd-pro-schema-form@1.0.0-rc.28) (2023-08-19)
 
 **Note:** Version bump only for package antd-pro-schema-form
