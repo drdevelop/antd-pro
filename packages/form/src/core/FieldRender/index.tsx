@@ -28,7 +28,7 @@ export interface Props {
    */
   elementSpecProps?: any;
   /** registe components */
-  components?: { [key: string]: React.ReactNode; };
+  components?: { [key: string]: React.ReactNode | React.FunctionComponent | React.Component; };
 }
 
 const FieldRender: React.FC<Props> = (props) => {

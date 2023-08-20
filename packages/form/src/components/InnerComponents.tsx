@@ -51,7 +51,7 @@ const ProSwitch = withFieldDefault(Switch, (props: FieldProps) => ({
   checked: props.value,
 }));
 
-const ProRadioButton = withFieldDefault(Switch, (props: FieldProps) => ({
+const ProRadioButton = withFieldDefault(ProRadio, (props: FieldProps) => ({
   optionType: 'button',
   options: props.data,
 }));
