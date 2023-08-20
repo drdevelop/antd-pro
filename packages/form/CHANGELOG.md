@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.30](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.29...antd-pro-schema-form@1.0.0-rc.30) (2023-08-20)
+
+
+### Bug Fixes
+
+* Select and MultipleSelect search filter no result ([d472480](https://github.com/drdevelop/antd-pro/commit/d472480cdf6e706848bdc719215a541334f10c4d))
+
+
+
+
+
 # [1.0.0-rc.29](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.28...antd-pro-schema-form@1.0.0-rc.29) (2023-08-20)
 
 
