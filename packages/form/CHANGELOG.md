@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-rc.33](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.32...antd-pro-schema-form@1.0.0-rc.33) (2023-08-21)
+
+
+### Features
+
+* add extended schema item type declaration ([0ab2bcb](https://github.com/drdevelop/antd-pro/commit/0ab2bcb28b026decf8590e18ebd39f10bca546a6))
+
+
+
+
+
+## [1.0.0-rc.32](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.31...antd-pro-schema-form@1.0.0-rc.32) (2023-08-21)
+
+
+### Bug Fixes
+
+* test case not covered forceRefresh function of ref ([720b63f](https://github.com/drdevelop/antd-pro/commit/720b63ffc36f6da7560146cfcbbe4b0d4f9bf466))
+
+
+
+
+
+## [1.0.0-rc.31](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.30...antd-pro-schema-form@1.0.0-rc.31) (2023-08-20)
+
+
+### Features
+
+* add testcase, the coverage more than 99%+ ([d1badad](https://github.com/drdevelop/antd-pro/commit/d1badad9c95c6dc6af15a64f18c143e66ee481f2))
+
+
+
+
+
+## [1.0.0-rc.30](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.29...antd-pro-schema-form@1.0.0-rc.30) (2023-08-20)
+
+
+### Bug Fixes
+
+* Select and MultipleSelect search filter no result ([d472480](https://github.com/drdevelop/antd-pro/commit/d472480cdf6e706848bdc719215a541334f10c4d))
+
+
+
+
+
+## [1.0.0-rc.29](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.28...antd-pro-schema-form@1.0.0-rc.29) (2023-08-20)
+
+
+### Bug Fixes
+
+* schema type: 'radioButton' render as unexpected Switch ([b4a6608](https://github.com/drdevelop/antd-pro/commit/b4a66087f69b78437de4dec78153134817579428))
+
+
+### Features
+
+* export type SchemaFormProps ([6f764f9](https://github.com/drdevelop/antd-pro/commit/6f764f9bd897eb25427ffb9f0dd41549b0d1b798))
+
+
+
+
+
 ## [1.0.0-rc.28](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.27...antd-pro-schema-form@1.0.0-rc.28) (2023-08-19)
 
 **Note:** Version bump only for package antd-pro-schema-form
@@ -85,7 +145,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# 1.0.0-rc.20 (2023-08-14)
+### 1.0.0-rc.20 (2023-08-14)
 
 **Note:** Version bump only for package antd-pro-schema-form
 
@@ -93,7 +153,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# 1.0.0-rc.19 (2023-08-14)
+### 1.0.0-rc.19 (2023-08-14)
 
 **Note:** Version bump only for package antd-pro-schema-form
 
@@ -101,7 +161,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# 1.0.0-rc.18 (2023-08-14)
+### 1.0.0-rc.18 (2023-08-14)
 
 **Note:** Version bump only for package antd-pro-schema-form
 
@@ -109,7 +169,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# 1.0.0-rc.17 (2023-08-14)
+## 1.0.0-rc.17 (2023-08-14)
 
 **Note:** Version bump only for package antd-pro-schema-form
 
@@ -117,23 +177,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# 1.0.0-rc.15 (2023-08-13)
+## 1.0.0-rc.15 (2023-08-13)
 
 **Note:** Version bump only for package antd-pro-schema-form
 
-# 1.0.0-rc.14 (2023-08-13)
+## 1.0.0-rc.14 (2023-08-13)
 
 **Note:** Version bump only for package antd-pro-schema-form
 
-# 1.0.0-rc.13 (2023-08-13)
+## 1.0.0-rc.13 (2023-08-13)
 
 **Note:** Version bump only for package antd-pro-schema-form
 
-# 1.0.0-rc.12 (2023-08-13)
+## 1.0.0-rc.12 (2023-08-13)
 
 **Note:** Version bump only for package antd-pro-schema-form
 
-# 1.0.0-rc.11 (2023-08-13)
+## 1.0.0-rc.11 (2023-08-13)
 
 **Note:** Version bump only for package antd-pro-schema-form
 
