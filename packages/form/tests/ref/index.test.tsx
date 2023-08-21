@@ -16,7 +16,7 @@ function TestComponent() {
     if (!formRef.current) return;
     formRef.current.forceRefresh();
   }, [formRef]);
-  return <SchemaForm schema={schema} />
+  return <SchemaForm ref={formRef} schema={schema} />
 }
 
 it("invoke ref forceRefresh", async () => {
