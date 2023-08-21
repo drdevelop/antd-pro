@@ -6,9 +6,9 @@ import schemaItemToNode from './schemaItemToNode';
 import { Schema } from '../types';
 import reflectFormInstance from '../Decorator/reflectFormInstance';
 
-export interface Props extends Pick<FieldRenderProps, 'components'> {}
+export interface Props<T = ''> extends Pick<FieldRenderProps<T>, 'components'> {}
 
-export interface Props extends FormProps {
+export interface Props<T = ''> extends FormProps {
   /**
    * enable convert value when init or submit
    */
@@ -16,7 +16,7 @@ export interface Props extends FormProps {
   /** form instance */
   form?: FormInstance;
   /** form schema configuration */
-  schema: Schema;
+  schema: Schema<T>;
   /** form group schema configuration */
   schemaGroups?: GroupRule[];
   /** every schema group render */
@@ -34,7 +34,7 @@ export interface RefCurrent extends FormInstance {
   forceRefresh: () => void;
 }
 
-const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => {
+function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
   const {
     enableValueAtomize,
     form: outerformInstance,
@@ -59,7 +59,7 @@ const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => 
   if (enableValueAtomize && !decorateRef.current) {
     // enable value fusion and fission ability
     decorateRef.current = true;
-    reflectFormInstance(shadowFormRef.current, innerFormInstance, schema);
+    reflectFormInstance(shadowFormRef.current, innerFormInstance, schema as Schema);
   }
 
   const [forceRenderKey, setForceRenderKey] = useState<number>(0);
@@ -142,6 +142,12 @@ const SchemaForm: ForwardRefRenderFunction<RefCurrent, Props> = (props, ref) => 
       </>
     </Form>
   )
+}
+
+declare module "react" {
+  function forwardRef<T, P = {}>(
+    render: (props: P, ref: React.Ref<T>) => React.ReactNode | null
+  ): (props: P & React.RefAttributes<T>) => React.ReactNode | null;
 }
 
 export default React.forwardRef(SchemaForm);

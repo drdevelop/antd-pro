@@ -108,8 +108,10 @@ toc: content
 ## 局部注册组件
 
 ```tsx
-  import SchemaForm from 'antd-pro-schema-form';
+  import SchemaForm, { SchemaFormProps } from 'antd-pro-schema-form';
   import { Input } from 'antd';
+
+  type ExtensionType = 'customInput';
 
   const CustomInput = (props) => {
     const { value, onChange, className, style, elementSpecProps } = props;
@@ -126,12 +128,12 @@ toc: content
   };
 
   export default () => {
-    const schema = [{
+    const schema: SchemaFormProps<ExtensionType>['schema'] = [{
       fieldName: 'title',
       label: '自行注册的组件',
       type: 'customInput',
     }]
-    return <SchemaForm schema={schema} components={{ customInput: CustomInput }} />
+    return <SchemaForm<ExtensionType> schema={schema} components={{ customInput: CustomInput }} />
   }
 ```
 
@@ -139,8 +141,10 @@ toc: content
 ## 全局注册组件
 
 ```tsx
-  import SchemaForm, { registerComponents, registerComponent } from 'antd-pro-schema-form';
+  import SchemaForm, { SchemaFormProps, registerComponents, registerComponent } from 'antd-pro-schema-form';
   import { Input } from 'antd';
+
+  type ExtensionType = 'customInput';
 
   const CustomInput = (props) => {
     const { value, onChange, className, style, elementSpecProps } = props;
@@ -158,11 +162,11 @@ toc: content
   registerComponents({ customInput: CustomInput });
 
   export default () => {
-    const schema = [{
+    const schema: SchemaFormProps<ExtensionType>['schema'] = [{
       fieldName: 'title',
       label: '自行注册的组件',
       type: 'customInput',
     }]
-    return <SchemaForm schema={schema} />
+    return <SchemaForm<ExtensionType> schema={schema} />
   }
 ```

@@ -19,11 +19,13 @@ const CustomInput = (props) => {
   )
 };
 
+type ExtensionType = 'customInput' | 'noExist';
+
 function TestLazyloadData() {
-  const schema: SchemaFormProps['schema'] = [{
+  const schema: SchemaFormProps<ExtensionType>['schema'] = [{
     fieldName: 'versionType',
     label: 'version',
-    type: 'radio' as any,
+    type: 'radio',
     data: [{
       label: 'noLimit',
       value: 1,
@@ -45,17 +47,17 @@ function TestLazyloadData() {
   }, {
     fieldName: 'option3',
     label: 'dynamic label3',
-    type: 'customInput' as any,
+    type: 'customInput',
     dependencies: ['versionType'],
   }, {
     fieldName: 'option4',
     label: 'dynamic label4',
     // test when define component, but type is not exist
-    type: 'noExist' as any,
+    type: 'noExist',
     dependencies: ['versionType'],
     component: <span>1</span>
   }]
-  return <SchemaForm schema={schema} components={{ customInput: CustomInput }}/>
+  return <SchemaForm<ExtensionType> schema={schema} components={{ customInput: CustomInput }}/>
 }
 
 it("schema factory when type is custom", async () => {

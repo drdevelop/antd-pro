@@ -18,13 +18,15 @@ const CustomInput = (props) => {
   )
 };
 
+type ExtensionType = 'customInput';
+
 function TestComponent() {
-  const schema: SchemaFormProps['schema'] = [{
+  const schema: SchemaFormProps<ExtensionType>['schema'] = [{
     fieldName: 'title',
     label: 'custom input',
-    type: 'customInput' as any,
+    type: 'customInput',
   }]
-  return <SchemaForm schema={schema} components={{ customInput: CustomInput }} />
+  return <SchemaForm<ExtensionType> schema={schema} components={{ customInput: CustomInput }} />
 }
 
 it("local register component", () => {
