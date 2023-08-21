@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.32](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.31...antd-pro-schema-form@1.0.0-rc.32) (2023-08-21)
+
+
+### Bug Fixes
+
+* test case not covered forceRefresh function of ref ([720b63f](https://github.com/drdevelop/antd-pro/commit/720b63ffc36f6da7560146cfcbbe4b0d4f9bf466))
+
+
+
+
+
 # [1.0.0-rc.31](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.30...antd-pro-schema-form@1.0.0-rc.31) (2023-08-20)
 
 
