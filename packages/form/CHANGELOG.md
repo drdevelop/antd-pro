@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.33](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.32...antd-pro-schema-form@1.0.0-rc.33) (2023-08-21)
+
+
+### Features
+
+* add extended schema item type declaration ([0ab2bcb](https://github.com/drdevelop/antd-pro/commit/0ab2bcb28b026decf8590e18ebd39f10bca546a6))
+
+
+
+
+
 # [1.0.0-rc.32](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.31...antd-pro-schema-form@1.0.0-rc.32) (2023-08-21)
 
 
