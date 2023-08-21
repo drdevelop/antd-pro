@@ -1,7 +1,7 @@
 import { Props as SchemaItem } from '../FormItemRender';
 
-export interface SchemaMap {
-  [key: string]: SchemaItem;
+export interface SchemaMap<T = ''> {
+  [key: string]: SchemaItem<T>;
 }
 
-export type Schema = SchemaMap | SchemaItem[];
+export type Schema<T = ''> = SchemaMap<T> | SchemaItem<T>[];

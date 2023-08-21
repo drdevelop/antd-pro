@@ -3,7 +3,7 @@ import React from 'react';
 import { LabelInValue } from '../../shared/schema';
 import InnerComponents from '../../components';
 
-export interface Props {
+export interface Props<T = ''> {
   style?: React.CSSProperties;
   className?: string;
   /** field key */
@@ -14,7 +14,7 @@ export interface Props {
    * component type
    */
   type: keyof typeof InnerComponents
-    | 'custom';
+    | 'custom' | T;
   component?: React.ReactNode | ((form: FormInstance) => any);
   disabled?: boolean;
   value?: any;

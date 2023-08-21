@@ -3,7 +3,7 @@ import { Form, FormItemProps } from 'antd';
 import FieldRender, { Props as FieldRenderProps } from '../FieldRender';
 import { LabelInValue } from '../../shared/schema';
 
-export interface Props extends FieldRenderProps {
+export interface Props<T = ''> extends FieldRenderProps<T> {
   /**
    * request remote data
    */
