@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import SchemaForm, { RefCurrent } from "../../src";
+import SchemaForm, { RefCurrent, SchemaFormProps } from "../../src";
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import dayjs from 'dayjs';
@@ -8,10 +8,10 @@ import userEvent from '@testing-library/user-event';
 function TestComponent() {
   const formRef = useRef<RefCurrent>();
   const [submitData, setSubmitData] = useState();
-  const schema = [{
+  const schema: SchemaFormProps['schema'] = [{
     fieldName: 'date',
     label: 'date',
-    type: 'datePicker' as any,
+    type: 'datePicker',
     fusion(value) {
       // transform value when setFieldsValue
       return dayjs(value);
@@ -46,11 +46,11 @@ function TestComponent() {
 function TestComponent2() {
   const formRef = useRef<RefCurrent>();
   const [submitData, setSubmitData] = useState();
-  const schema = {
+  const schema: SchemaFormProps['schema'] = {
     date: {
       fieldName: 'date',
       label: 'date',
-      type: 'datePicker' as any,
+      type: 'datePicker',
       fusion(value) {
         // transform value when setFieldsValue
         return dayjs(value);

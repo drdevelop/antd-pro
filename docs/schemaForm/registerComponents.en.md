@@ -108,8 +108,10 @@ No need to deliberately encapsulate the react node to be encapsulated as a compo
 ## Local registration component
 
 ```tsx
-  import SchemaForm from 'antd-pro-schema-form';
+  import SchemaForm, { SchemaFormProps } from 'antd-pro-schema-form';
   import { Input } from 'antd';
+
+  type ExtensionType = 'customInput';
 
   const CustomInput = (props) => {
     const { value, onChange, className, style, elementSpecProps } = props;
@@ -126,12 +128,12 @@ No need to deliberately encapsulate the react node to be encapsulated as a compo
   };
 
   export default () => {
-    const schema = [{
+    const schema: SchemaFormProps<ExtensionType>['schema'] = [{
       fieldName: 'title',
       label: 'custom input',
       type: 'customInput',
     }]
-    return <SchemaForm schema={schema} components={{ customInput: CustomInput }} />
+    return <SchemaForm<ExtensionType> schema={schema} components={{ customInput: CustomInput }} />
   }
 ```
 
@@ -139,8 +141,10 @@ No need to deliberately encapsulate the react node to be encapsulated as a compo
 ## Global registration component
 
 ```tsx
-  import SchemaForm, { registerComponents, registerComponent } from 'antd-pro-schema-form';
+  import SchemaForm, { SchemaFormProps, registerComponents, registerComponent } from 'antd-pro-schema-form';
   import { Input } from 'antd';
+
+  type ExtensionType = 'customInput';
 
   const CustomInput = (props) => {
     const { value, onChange, className, style, elementSpecProps } = props;
@@ -158,7 +162,7 @@ No need to deliberately encapsulate the react node to be encapsulated as a compo
   registerComponents({ customInput: CustomInput });
 
   export default () => {
-    const schema = [{
+    const schema: SchemaFormProps<ExtensionType>['schema'] = [{
       fieldName: 'title',
       label: 'custom input',
       type: 'customInput',

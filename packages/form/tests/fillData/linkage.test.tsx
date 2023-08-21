@@ -1,14 +1,14 @@
 import React from 'react';
-import SchemaForm from "../../src";
+import SchemaForm, { SchemaFormProps } from "../../src";
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
 function TestComponent() {
-  const schema = [{
+  const schema: SchemaFormProps['schema'] = [{
     fieldName: 'versionType',
     label: 'version',
-    type: 'radio' as any,
+    type: 'radio',
     data: [{
       label: 'noLimit',
       value: 1,
@@ -19,7 +19,7 @@ function TestComponent() {
   }, {
     fieldName: 'option',
     label: 'dynamic label',
-    type: 'select' as any,
+    type: 'select',
     dependencies: ['versionType'],
     component: (form) => {
       const versionType = form.getFieldValue('versionType');
