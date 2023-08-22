@@ -1,5 +1,5 @@
 import React from 'react';
-import SchemaForm, { SchemaFormProps } from "../../src";
+import SchemaForm, { Props as SchemaFormProps } from '../../src/core/Transformer/SchemaForm';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Input } from 'antd';
@@ -15,7 +15,7 @@ const CustomInput = (props) => {
       onChange={onChange}
       {...elementSpecProps}
     />
-  )
+  );
 };
 
 type ExtensionType = 'customInput';
@@ -25,11 +25,11 @@ function TestComponent() {
     fieldName: 'title',
     label: 'custom input',
     type: 'customInput',
-  }]
-  return <SchemaForm<ExtensionType> schema={schema} components={{ customInput: CustomInput }} />
+  }];
+  return <SchemaForm<ExtensionType> schema={schema} components={{ customInput: CustomInput }} />;
 }
 
-it("local register component", () => {
+it('local register component', () => {
   render(<TestComponent />);
   expect(screen.getByText('custom input')).toBeInTheDocument();
 });

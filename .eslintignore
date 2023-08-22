@@ -4,6 +4,7 @@ es
 lib
 dist
 docs-dist
+demo
 .dumi/tmp/*
 .dumi/tmp-production/*
 coverage

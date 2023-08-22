@@ -1,4 +1,4 @@
-import React, { ForwardRefRenderFunction, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import React, { useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { Form, FormInstance, FormProps } from 'antd';
 import { Props as FieldRenderProps } from '../FieldRender';
 import { GroupRule } from '../../shared/schema';
@@ -6,8 +6,12 @@ import schemaItemToNode from './schemaItemToNode';
 import { Schema } from '../types';
 import reflectFormInstance from '../Decorator/reflectFormInstance';
 
+// @ts-ignore
+// eslint-disable-next-line
 export interface Props<T = ''> extends Pick<FieldRenderProps<T>, 'components'> {}
 
+// @ts-ignore
+// eslint-disable-next-line
 export interface Props<T = ''> extends FormProps {
   /**
    * enable convert value when init or submit
@@ -51,8 +55,9 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
   // resemble double cache mechanism
   const shadowFormRef = useRef<FormInstance>(
     enableValueAtomize
+      // eslint-disable-next-line
       ? outerformInstance || {} as FormInstance
-      : innerFormInstance
+      : innerFormInstance,
   );
   const decorateRef = useRef<boolean>(false);
 
@@ -65,17 +70,17 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
   const [forceRenderKey, setForceRenderKey] = useState<number>(0);
 
   useImperativeHandle(ref, () => ({
-    forceRefresh: () => setForceRenderKey(oldKey => ++oldKey),
+    forceRefresh: () => setForceRenderKey((oldKey) => ++oldKey),
     ...shadowFormRef.current,
   }));
 
   const schemaDict = useMemo(() => {
-    const schemaDict = {};
+    const dict = {};
     if (schema instanceof Array) {
-      schema.forEach(item => {
-        schemaDict[item.fieldName] = item;
-      })
-      return schemaDict;
+      schema.forEach((item) => {
+        dict[item.fieldName] = item;
+      });
+      return dict;
     } else {
       return schema;
     }
@@ -87,7 +92,7 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
     } else {
       return [{
         list: schema instanceof Array
-          ? schema.map(item => item.fieldName)
+          ? schema.map((item) => item.fieldName)
           : Object.keys(schema),
       }];
     }
@@ -95,13 +100,13 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
 
   const renderFormItemList = (group: GroupRule) => {
     return Object.values(group.list).map(
-      pickName => schemaItemToNode(
+      (pickName) => schemaItemToNode(
         schemaDict,
         pickName,
         components,
         globalState,
-      )
-    )
+      ),
+    );
   };
 
   const defaultGroupRender = (formItemList: React.ReactNode[]) => {
@@ -121,7 +126,7 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
     const schemaGroups = getSchemaGroups(defineSchemaGroups);
     const groups = schemaGroups?.map(renderGroup);
     return groups;
-  }
+  };
 
   const groupsNode = useMemo(() => {
     if (groupsRender) {
@@ -141,10 +146,10 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
         {props.children}
       </>
     </Form>
-  )
+  );
 }
 
-declare module "react" {
+declare module 'react' {
   function forwardRef<T, P = {}>(
     render: (props: P, ref: React.Ref<T>) => React.ReactNode | null
   ): (props: P & React.RefAttributes<T>) => React.ReactNode | null;

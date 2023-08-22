@@ -25,26 +25,26 @@ const ProTreeSelect = withFieldDefault(TreeSelect, (props: FieldProps) => ({
   treeDataSimpleMode: true,
   multiple: true,
   showSearch: true,
-  treeNodeFilterProp: 'title'
+  treeNodeFilterProp: 'title',
 }));
 
 const ProDatePicker = withFieldDefault(DatePicker, {
   showTime: true,
-  format: 'YYYY-MM-DD HH:mm:ss'
+  format: 'YYYY-MM-DD HH:mm:ss',
 });
 
 const ProDateRangePicker = withFieldDefault(DatePicker.RangePicker, {
-  format: 'YYYY-MM-DD HH:mm:ss'
+  format: 'YYYY-MM-DD HH:mm:ss',
 });
 
 const ProDateTimeRangePicker = withFieldDefault(DatePicker.RangePicker, {
   showTime: true,
-  format: 'YYYY-MM-DD HH:mm:ss'
+  format: 'YYYY-MM-DD HH:mm:ss',
 });
 
 const ProTimeRangePicker = withFieldDefault(DatePicker.RangePicker, {
   showTime: true,
-  format: 'YYYY-MM-DD HH:mm:ss'
+  format: 'YYYY-MM-DD HH:mm:ss',
 });
 
 const ProSwitch = withFieldDefault(Switch, (props: FieldProps) => ({

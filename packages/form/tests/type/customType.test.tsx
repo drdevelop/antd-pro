@@ -1,5 +1,5 @@
 import React from 'react';
-import SchemaForm from "../../src";
+import SchemaForm from '../../src';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Form, Input } from 'antd';
@@ -26,7 +26,7 @@ function TestCustomComponent() {
     component: Input,
   }];
 
-  return <SchemaForm schema={schema} />
+  return <SchemaForm schema={schema} />;
 }
 
 function TestNoExistType() {
@@ -36,15 +36,15 @@ function TestNoExistType() {
     type: 'test',
   }];
 
-  return <SchemaForm schema={schema} />
+  return <SchemaForm schema={schema} />;
 }
 
-it("custom component", () => {
+it('custom component', () => {
   render(<TestCustomComponent />);
   expect(screen.getByText('custom input')).toBeInTheDocument();
   expect(screen.getByText('custom input2')).toBeInTheDocument();
 });
 
-it("no exist type", () => {
+it('no exist type', () => {
   render(<TestNoExistType />);
 });

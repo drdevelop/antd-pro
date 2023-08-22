@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import SchemaForm, { RefCurrent, SchemaFormProps } from "../../src";
+import SchemaForm, { RefCurrent, SchemaFormProps } from '../../src';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import dayjs from 'dayjs';
@@ -26,7 +26,7 @@ function TestComponent() {
     if (!formRef.current) return;
     formRef.current.setFieldsValue({
       date: '2023-08-08',
-    })
+    });
   }, [formRef]);
 
   const submit = () => {
@@ -40,7 +40,7 @@ function TestComponent() {
       <span onClick={submit}>submit</span>
       {submitData ? JSON.stringify(submitData) : ''}
     </>
-  )
+  );
 }
 
 function TestComponent2() {
@@ -59,14 +59,14 @@ function TestComponent2() {
         // transform value when form submit or getFieldsValue
         return value.format('YYYY-MM-DD HH:mm:ss');
       },
-    }
+    },
   };
 
   useEffect(() => {
     if (!formRef.current) return;
     formRef.current.setFieldsValue({
       date: '2023-08-08',
-    })
+    });
   }, [formRef]);
 
   const submit = () => {
@@ -80,17 +80,17 @@ function TestComponent2() {
       <span onClick={submit}>submit</span>
       {submitData ? JSON.stringify(submitData) : ''}
     </>
-  )
+  );
 }
 
-it("value fusion and fission", async () => {
+it('value fusion and fission', async () => {
   render(<TestComponent />);
   expect(screen.getByDisplayValue('2023-08-08 00:00:00')).toBeInTheDocument();
   await userEvent.click(screen.getByText('submit'));
   expect(screen.getByText('{"date":"2023-08-08 00:00:00"}')).toBeInTheDocument();
 });
 
-it("value fusion and fission with object schema", async () => {
+it('value fusion and fission with object schema', async () => {
   render(<TestComponent2 />);
   expect(screen.getByDisplayValue('2023-08-08 00:00:00')).toBeInTheDocument();
   await userEvent.click(screen.getByText('submit'));

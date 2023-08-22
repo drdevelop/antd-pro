@@ -1,5 +1,5 @@
 import React from 'react';
-import SchemaForm, { SchemaFormProps } from "../../src";
+import SchemaForm, { SchemaFormProps } from '../../src';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
@@ -9,12 +9,12 @@ function TestComponent() {
       fieldName: 'title',
       label: 'title',
       type: 'input',
-    }
+    },
   };
   const schemaGroups = [{
     list: [
       'title',
-    ]
+    ],
   }];
   const groupsRender = (child) => {
     return (
@@ -22,9 +22,9 @@ function TestComponent() {
         {child}
         extra node display
       </div>
-    )
+    );
   };
-  return <SchemaForm schema={schema} schemaGroups={schemaGroups} groupsRender={groupsRender}/>
+  return <SchemaForm schema={schema} schemaGroups={schemaGroups} groupsRender={groupsRender} />;
 }
 
 function TestAutoSchemaGroups() {
@@ -33,17 +33,17 @@ function TestAutoSchemaGroups() {
       fieldName: 'title',
       label: 'title',
       type: 'input',
-    }
+    },
   };
-  return <SchemaForm schema={schema} />
+  return <SchemaForm schema={schema} />;
 }
 
-it("group schema", () => {
+it('group schema', () => {
   render(<TestComponent />);
   expect(screen.getByText('title')).toBeInTheDocument();
 });
 
-it("auto group schema", () => {
+it('auto group schema', () => {
   render(<TestAutoSchemaGroups />);
   expect(screen.getByText('title')).toBeInTheDocument();
 });

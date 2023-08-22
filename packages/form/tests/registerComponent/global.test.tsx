@@ -1,5 +1,5 @@
 import React from 'react';
-import SchemaForm, { SchemaFormProps, registerComponent, registerComponents } from "../../src";
+import SchemaForm, { SchemaFormProps, registerComponent, registerComponents } from '../../src';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Input } from 'antd';
@@ -15,7 +15,7 @@ const CustomInput1 = (props) => {
       onChange={onChange}
       {...elementSpecProps}
     />
-  )
+  );
 };
 
 const CustomInput2 = (props) => {
@@ -29,7 +29,7 @@ const CustomInput2 = (props) => {
       onChange={onChange}
       {...elementSpecProps}
     />
-  )
+  );
 };
 
 registerComponent(CustomInput1);
@@ -44,11 +44,11 @@ function TestComponent() {
     fieldName: 'title2',
     label: 'custom input2',
     type: 'customInput2' as any,
-  }]
-  return <SchemaForm schema={schema} components={{ customInput1: CustomInput1 }} />
+  }];
+  return <SchemaForm schema={schema} components={{ customInput1: CustomInput1 }} />;
 }
 
-it("global register component", () => {
+it('global register component', () => {
   render(<TestComponent />);
   expect(screen.getByText('custom input1')).toBeInTheDocument();
   expect(screen.getByText('custom input2')).toBeInTheDocument();

@@ -11,6 +11,8 @@
     "dev": "WATCH_IGNORED=none DUMI_CACHE=none dumi dev",
     "build": "lerna run build",
     "docs:build": "dumi build",
+    "lint": "eslint ./",
+    "lint:fix": "eslint ./ --fix",
     "version": "lerna version --conventional-commits",
     "postinstall": "chmod 700 .husky/*",
     "pub": "lerna exec -- npm publish",
@@ -56,6 +58,6 @@
     "antd-pro-schema-form": "workspace:~"
   },
   "lint-staged": {
-    "*": "eslint"
+    "*.{js, jsx, ts, tsx}": "npm run lint"
   }
 }

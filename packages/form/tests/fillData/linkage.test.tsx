@@ -1,5 +1,5 @@
 import React from 'react';
-import SchemaForm, { SchemaFormProps } from "../../src";
+import SchemaForm, { SchemaFormProps } from '../../src';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
@@ -15,7 +15,7 @@ function TestComponent() {
     }, {
       label: 'custom',
       value: 2,
-    }]
+    }],
   }, {
     fieldName: 'option',
     label: 'dynamic label',
@@ -33,15 +33,15 @@ function TestComponent() {
     }, {
       label: 'option2',
       value: 2,
-    }]
-  }]
-  return <SchemaForm schema={schema} />
+    }],
+  }];
+  return <SchemaForm schema={schema} />;
 }
 
-test("linkage", async () => {
+test('linkage', async () => {
   const { container } = render(<TestComponent />);
   const radios = container.querySelectorAll('input');
   expect(screen.queryByText('dynamic label')).toBeNull();
-  await userEvent.click(radios[1])
+  await userEvent.click(radios[1]);
   expect(screen.getByText('dynamic label')).toBeInTheDocument();
 });
