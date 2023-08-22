@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.34](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.33...antd-pro-schema-form@1.0.0-rc.34) (2023-08-22)
+
+
+### Bug Fixes
+
+* eslint fix ([12a6dcf](https://github.com/drdevelop/antd-pro/commit/12a6dcfe63ac356f2924513f4b0529057e87bb10))
+
+
+
+
+
 ## [1.0.0-rc.33](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.32...antd-pro-schema-form@1.0.0-rc.33) (2023-08-21)
 
 
