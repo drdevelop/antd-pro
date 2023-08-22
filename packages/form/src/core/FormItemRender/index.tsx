@@ -36,7 +36,7 @@ export interface Props<T = ''> extends FieldRenderProps<T> {
   fission?: (value: any) => any;
 }
 
-const FormItemRender: React.FC<Props> = props => {
+const FormItemRender: React.FC<Props> = (props) => {
   const { dependencies } = props;
 
   const [innerData, setInnerData] = useState<LabelInValue[]>(props.data);
@@ -44,7 +44,7 @@ const FormItemRender: React.FC<Props> = props => {
   const fetchRemoteData = async (request: Props['remoteData'], keyword?: string) => {
     const data = await request!(keyword);
     setInnerData(data);
-  }
+  };
 
   useEffect(() => {
     if (typeof props.remoteData === 'function') {
@@ -63,29 +63,29 @@ const FormItemRender: React.FC<Props> = props => {
     } else {
       return false;
     }
-  }
+  };
 
-  const formItem = (props: Props) => {
+  const formItem = (formItemProps: Props) => {
     const formItemSpecProps: FormItemProps = {
-      name: props.fieldName,
-      label: props.label,
-      dependencies: props.dependencies,
+      name: formItemProps.fieldName,
+      label: formItemProps.label,
+      dependencies: formItemProps.dependencies,
     };
     const fieldProps = {
-      style: props.style,
-      className: props.className,
-      components: props.components,
+      style: formItemProps.style,
+      className: formItemProps.className,
+      components: formItemProps.components,
       data: innerData,
-      type: props.type,
-      component: props.component,
-      ...props.elementSpecProps,
+      type: formItemProps.type,
+      component: formItemProps.component,
+      ...formItemProps.elementSpecProps,
     };
     return (
       <Form.Item {...formItemSpecProps}>
         <FieldRender {...fieldProps} />
       </Form.Item>
-    )
-  }
+    );
+  };
 
   if (dependencies) {
     return (
@@ -112,10 +112,10 @@ const FormItemRender: React.FC<Props> = props => {
           }
         }
       </Form.Item>
-    )
+    );
   } else {
     return formItem(props);
   }
-}
+};
 
 export default FormItemRender;

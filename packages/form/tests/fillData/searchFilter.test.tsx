@@ -1,5 +1,5 @@
 import React from 'react';
-import SchemaForm, { SchemaFormProps } from "../../src";
+import SchemaForm, { SchemaFormProps } from '../../src';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
@@ -15,9 +15,9 @@ function TestSelect() {
     }, {
       label: 'option 2',
       value: 2,
-    }]
-  }]
-  return <SchemaForm schema={schema} />
+    }],
+  }];
+  return <SchemaForm schema={schema} />;
 }
 
 function TestMultipleSelect() {
@@ -31,12 +31,12 @@ function TestMultipleSelect() {
     }, {
       label: 'option 2',
       value: 2,
-    }]
-  }]
-  return <SchemaForm schema={schema} />
+    }],
+  }];
+  return <SchemaForm schema={schema} />;
 }
 
-it("select search filter", async () => {
+it('select search filter', async () => {
   const { container } = render(<TestSelect />);
   const inputs = container.querySelectorAll('input');
   await userEvent.click(inputs[0]);
@@ -45,7 +45,7 @@ it("select search filter", async () => {
   expect(screen.getByText('option 2')).toBeInTheDocument();
 });
 
-it("multiple select search filter", async () => {
+it('multiple select search filter', async () => {
   const { container } = render(<TestMultipleSelect />);
   const inputs = container.querySelectorAll('input');
   await userEvent.click(inputs[0]);

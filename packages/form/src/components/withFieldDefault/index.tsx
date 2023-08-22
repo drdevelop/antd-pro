@@ -7,10 +7,10 @@ const withFieldDefault = (Comp, defaultProps) => {
       ...(typeof defaultProps === 'function' ? defaultProps(props) : defaultProps),
       ...props,
     };
-    return <Comp {...newProps} />
-  }
+    return <Comp {...newProps} />;
+  };
   HOC.displayName = 'MultipleSelect';
   return HOC;
-}
+};
 
 export default withFieldDefault;

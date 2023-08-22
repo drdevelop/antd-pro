@@ -1,5 +1,5 @@
 import React from 'react';
-import SchemaForm, { SchemaFormProps } from "../../src";
+import SchemaForm, { SchemaFormProps } from '../../src';
 import { act, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
@@ -16,7 +16,7 @@ const CustomInput = (props) => {
       onChange={onChange}
       {...elementSpecProps}
     />
-  )
+  );
 };
 
 type ExtensionType = 'customInput' | 'noExist';
@@ -32,7 +32,7 @@ function TestLazyloadData() {
     }, {
       label: 'custom',
       value: 2,
-    }]
+    }],
   }, {
     fieldName: 'option',
     label: 'dynamic label',
@@ -55,17 +55,17 @@ function TestLazyloadData() {
     // test when define component, but type is not exist
     type: 'noExist',
     dependencies: ['versionType'],
-    component: <span>1</span>
-  }]
-  return <SchemaForm<ExtensionType> schema={schema} components={{ customInput: CustomInput }}/>
+    component: <span>1</span>,
+  }];
+  return <SchemaForm<ExtensionType> schema={schema} components={{ customInput: CustomInput }} />;
 }
 
-it("schema factory when type is custom", async () => {
+it('schema factory when type is custom', async () => {
   // fix When testing, code that causes React state updates should be wrapped into act(...)
   // problem: on useEffect invoke async setState after fetch remoteData
   const { container } = await act(async () => {
     return render(
-      <TestLazyloadData />
+      <TestLazyloadData />,
     );
   });
 

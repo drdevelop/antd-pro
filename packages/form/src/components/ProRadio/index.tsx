@@ -14,12 +14,12 @@ const FieldRadio: React.FC<FieldProps> = (props) => {
       {...restProps}
     >
       {
-        data?.map(option => (
+        data?.map((option) => (
           <Radio value={option.value} key={option.value}>{option.label}</Radio>
         ))
       }
     </Radio.Group>
-  )
-}
+  );
+};
 
 export default FieldRadio;

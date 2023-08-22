@@ -11,10 +11,10 @@ const withFieldMapToProps = (Comp) => {
       ...restProps,
       ...elementSpecProps,
     };
-    return <Comp {...newProps} />
-  }
+    return <Comp {...newProps} />;
+  };
   HOC.displayName = 'withFieldMapToProps';
   return HOC;
-}
+};
 
 export default withFieldMapToProps;

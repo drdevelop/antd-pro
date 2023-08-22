@@ -14,7 +14,7 @@ export interface Props<T = ''> {
    * component type
    */
   type: keyof typeof InnerComponents
-    | 'custom' | T;
+  | 'custom' | T;
   component?: React.ReactNode | ((form: FormInstance) => any);
   disabled?: boolean;
   value?: any;
@@ -28,7 +28,7 @@ export interface Props<T = ''> {
    */
   elementSpecProps?: any;
   /** registe components */
-  components?: { [key: string]: React.ReactNode | React.FunctionComponent | React.Component; };
+  components?: { [key: string]: React.ReactNode | React.FunctionComponent | React.Component };
 }
 
 const FieldRender: React.FC<Props> = (props) => {
@@ -42,7 +42,7 @@ const FieldRender: React.FC<Props> = (props) => {
     value,
     onChange,
     data,
-    elementSpecProps
+    elementSpecProps,
   } = props;
   const provideProps = {
     style,
@@ -76,6 +76,6 @@ const FieldRender: React.FC<Props> = (props) => {
   return (
     <Field {...provideProps} />
   );
-}
+};
 
 export default FieldRender;

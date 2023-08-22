@@ -9,6 +9,7 @@ function copyFormMethods(shadowForm: FormInstance, instance: FormInstance) {
   const keys = Object.keys(instance);
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
+    // eslint-disable-next-line
     if (instance.hasOwnProperty(key)) {
       shadowForm[key] = instance[key];
     }
@@ -16,8 +17,8 @@ function copyFormMethods(shadowForm: FormInstance, instance: FormInstance) {
 }
 
 /**
- * decorate shadow form,  
- * copy form instance methods to shadow form,  
+ * decorate shadow form,
+ * copy form instance methods to shadow form,
  * the act like let shadow form proxy real form instance methods
  */
 function reflectFormInstance(shadowForm: FormInstance, instance: FormInstance, schema: Schema) {

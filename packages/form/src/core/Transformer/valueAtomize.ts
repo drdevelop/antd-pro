@@ -9,11 +9,11 @@ const getEffectiveSchema = (schema) => {
     effectiveSchema[field.fieldName] = field;
   }
   return effectiveSchema;
-}
+};
 
 export function fusionValue(schema: SchemaItem[] | { [key: string]: SchemaItem }, values) {
   const effectiveSchema: { [key: string]: SchemaItem } = getEffectiveSchema(schema);
-  Object.keys(values).map(key => {
+  Object.keys(values).forEach((key) => {
     if (effectiveSchema[key]?.fusion) {
       values[key] = effectiveSchema[key]?.fusion(values[key]);
     }
@@ -23,7 +23,7 @@ export function fusionValue(schema: SchemaItem[] | { [key: string]: SchemaItem }
 
 export function fissionValue(schema: SchemaItem[] | { [key: string]: SchemaItem }, values) {
   const effectiveSchema: { [key: string]: SchemaItem } = getEffectiveSchema(schema);
-  Object.keys(values).map(key => {
+  Object.keys(values).forEach((key) => {
     if (effectiveSchema[key]?.fission) {
       values[key] = effectiveSchema[key]?.fission(values[key]);
     }
