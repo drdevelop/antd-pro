@@ -51,7 +51,7 @@ const FieldRender: React.FC<Props> = (props) => {
     value,
     onChange,
     data,
-    elementSpecProps,
+    ...elementSpecProps,
   };
 
   const registryComponents = {

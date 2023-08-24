@@ -3,7 +3,6 @@ import ProRadio from './ProRadio';
 import ProCheckbox from './ProCheckbox';
 import withFieldDefault from './withFieldDefault';
 import { FieldProps } from '../shared/schema';
-import withFieldMapToProps from './withFieldMapToProps';
 
 const ProSelect = withFieldDefault(Select, (props: FieldProps) => ({
   showSearch: true,
@@ -57,18 +56,18 @@ const ProRadioButton = withFieldDefault(ProRadio, (props: FieldProps) => ({
 }));
 
 const InnerComponents = {
-  input: withFieldMapToProps(Input),
-  select: withFieldMapToProps(ProSelect),
-  multipleSelect: withFieldMapToProps(ProMultipleSelect),
-  radio: withFieldMapToProps(ProRadio),
-  radioButton: withFieldMapToProps(ProRadioButton),
-  checkbox: withFieldMapToProps(ProCheckbox),
-  treeSelect: withFieldMapToProps(ProTreeSelect),
-  datePicker: withFieldMapToProps(ProDatePicker),
-  dateRangePicker: withFieldMapToProps(ProDateRangePicker),
-  dateTimeRangePicker: withFieldMapToProps(ProDateTimeRangePicker),
-  timeRangePicker: withFieldMapToProps(ProTimeRangePicker),
-  switch: withFieldMapToProps(ProSwitch),
+  input: Input,
+  select: ProSelect,
+  multipleSelect: ProMultipleSelect,
+  radio: ProRadio,
+  radioButton: ProRadioButton,
+  checkbox: ProCheckbox,
+  treeSelect: ProTreeSelect,
+  datePicker: ProDatePicker,
+  dateRangePicker: ProDateRangePicker,
+  dateTimeRangePicker: ProDateTimeRangePicker,
+  timeRangePicker: ProTimeRangePicker,
+  switch: ProSwitch,
 };
 
 export default InnerComponents;
