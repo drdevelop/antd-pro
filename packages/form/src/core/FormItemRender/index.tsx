@@ -70,15 +70,17 @@ const FormItemRender: React.FC<Props> = (props) => {
       name: formItemProps.fieldName,
       label: formItemProps.label,
       dependencies: formItemProps.dependencies,
+      ...formItemProps.formItemSpecProps,
     };
     const fieldProps = {
+      fieldName: formItemProps.fieldName,
       style: formItemProps.style,
       className: formItemProps.className,
       components: formItemProps.components,
       data: innerData,
       type: formItemProps.type,
       component: formItemProps.component,
-      ...formItemProps.elementSpecProps,
+      elementSpecProps: formItemProps.elementSpecProps,
     };
     return (
       <Form.Item {...formItemSpecProps}>
