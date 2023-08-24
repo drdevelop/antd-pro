@@ -10,6 +10,8 @@ export interface Props<T = ''> {
   fieldName: string;
   /** display name */
   label?: string;
+  /** placeholder text */
+  placeholder?: string;
   /**
    * component type
    */
@@ -33,6 +35,7 @@ export interface Props<T = ''> {
 
 const FieldRender: React.FC<Props> = (props) => {
   const {
+    placeholder,
     components,
     style,
     className,
@@ -45,6 +48,7 @@ const FieldRender: React.FC<Props> = (props) => {
     elementSpecProps,
   } = props;
   const provideProps = {
+    placeholder,
     style,
     className,
     id: fieldName,

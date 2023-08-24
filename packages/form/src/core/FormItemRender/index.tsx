@@ -73,6 +73,7 @@ const FormItemRender: React.FC<Props> = (props) => {
       ...formItemProps.formItemSpecProps,
     };
     const fieldProps = {
+      placeholder: formItemProps.placeholder,
       fieldName: formItemProps.fieldName,
       style: formItemProps.style,
       className: formItemProps.className,
