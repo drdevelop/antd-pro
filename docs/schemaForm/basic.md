@@ -20,6 +20,7 @@ toc: content
       fieldName: 'title',
       label: '标题',
       type: 'input',
+      placeholder: '请输入'
     }]
     return <SchemaForm schema={schema} />
   }
@@ -42,6 +43,7 @@ toc: content
         fieldName: 'title',
         label: '分组schema标题',
         type: 'input',
+        placeholder: '请输入'
       }
     };
     const schemaGroups = [{

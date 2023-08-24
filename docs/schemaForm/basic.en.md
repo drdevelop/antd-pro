@@ -20,6 +20,7 @@ toc: content
       fieldName: 'title',
       label: 'title',
       type: 'input',
+      placeholder: 'please input'
     }]
     return <SchemaForm schema={schema} />
   }
@@ -40,6 +41,7 @@ toc: content
         fieldName: 'title',
         label: 'title',
         type: 'input',
+        placeholder: 'please input'
       }
     };
     const schemaGroups = [{

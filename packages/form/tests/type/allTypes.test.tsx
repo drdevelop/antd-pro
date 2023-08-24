@@ -22,7 +22,7 @@ function TestComponent() {
     type: 'select',
     data: options,
   }, {
-    fieldName: 'select',
+    fieldName: 'multipleSelect',
     label: '多选下拉选择框',
     type: 'multipleSelect',
     data: options,

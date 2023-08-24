@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.34...antd-pro-schema-form@1.0.0) (2023-08-24)
+
+
+### Bug Fixes
+
+* formItemSpecProps and elementSpecProps not working ([bc7380a](https://github.com/drdevelop/antd-pro/commit/bc7380a54822748e1f2bd857d04750d0aeefa835))
+* React does not recognize the `elementSpecProps` prop on a DOM element ([983eeca](https://github.com/drdevelop/antd-pro/commit/983eecae73c5d89fd4b12ea3d0882b63601e5f23))
+
+
+### Features
+
+* schema add placeholder ([41ac91e](https://github.com/drdevelop/antd-pro/commit/41ac91e518b93fc0e8935a4a9a4c4286ddbfb3a8))
+
+
+
+
+
 # [1.0.0-rc.34](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.33...antd-pro-schema-form@1.0.0-rc.34) (2023-08-22)
 
 
