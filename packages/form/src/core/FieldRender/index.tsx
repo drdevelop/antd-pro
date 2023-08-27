@@ -18,6 +18,7 @@ export interface Props<T = ''> {
   type: keyof typeof InnerComponents
   | 'custom' | T;
   component?: React.ReactNode | ((form: FormInstance) => any);
+  /** disabled component input */
   disabled?: boolean;
   value?: any;
   onChange?: (data: any) => void;

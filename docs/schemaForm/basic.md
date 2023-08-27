@@ -13,16 +13,29 @@ toc: content
  * title: 渲染
 * description: 更全的表单项见[探索更多](#/schema-form/register-components#所有内置组件示例)
 */
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [formInstance] = Form.useForm();
     const schema = [{
       fieldName: 'title',
       label: '标题',
       type: 'input',
-      placeholder: '请输入'
+      placeholder: '请输入',
+      rules: [{ required: true, message: '请输入标题' }]
     }]
-    return <SchemaForm schema={schema} />
+    const onSubmit = () => {
+      alert(JSON.stringify(formInstance.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={formInstance} schema={schema} />
+        <Button onClick={onSubmit}>
+          提交
+        </Button>
+      </>
+    )
   }
 ```
 
@@ -33,17 +46,19 @@ toc: content
  * title: schemaGroups表示要将表单schema作为一个字典，里面的字段进行分组渲染
  * description: 注意：此时schema需为object对象形式，[点我探索更多](#/schema-form/group-schema#schemaformprops)
  */
-  import React, { useRef, useEffect } from 'react';
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
-    const ref = useRef();
+    const [formInstance] = Form.useForm();
     const schema = {
       title: {
         fieldName: 'title',
         label: '分组schema标题',
         type: 'input',
-        placeholder: '请输入'
+        placeholder: '请输入',
+        rules: [{ required: true, message: '请输入标题' }],
       }
     };
     const schemaGroups = [{
@@ -51,17 +66,23 @@ toc: content
         'title',
       ]
     }];
-    useEffect(() => {
-      if (!ref.current) return;
-      console.log('刷新', ref.current)
-      ref.current.forceRefresh();
-    }, [ref])
-    return <SchemaForm ref={ref} schema={schema} schemaGroups={schemaGroups} />
+    const onSubmit = () => {
+      alert(JSON.stringify(formInstance.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={formInstance} schema={schema} schemaGroups={schemaGroups} />
+        <Button onClick={onSubmit}>
+          提交
+        </Button>
+      </>
+    )
   }
 ```
 
 ## API
 ### SchemaFormProps
+> 剩下未展示的属性为antd form任一props
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -88,3 +109,4 @@ toc: content
 | formItemSpecProps | antd表单项props<br />(注意区分elementSpecProps) | `FormItemProps` | `--` |
 | fusion | 原子聚变<br />(数据初始化时格式化表单项值value，需返回格式化后的值) | `(value: any) => any` | `--` |
 | fission | 原子裂变<br />(提交表单时格式化表单项值value，需返回格式化后的值) | `(value: any) => any` | `--` |
+| disabled | 是否禁用当前表单项 | `boolean` | `false` |
