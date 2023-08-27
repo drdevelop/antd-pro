@@ -80,6 +80,7 @@ const FormItemRender: React.FC<Props> = (props) => {
       ...formItemProps.formItemSpecProps,
     };
     const fieldProps = {
+      disabled: formItemProps.disabled,
       placeholder: formItemProps.placeholder,
       fieldName: formItemProps.fieldName,
       style: formItemProps.style,
