@@ -3,6 +3,12 @@ import { Form, FormItemProps } from 'antd';
 import FieldRender, { Props as FieldRenderProps } from '../FieldRender';
 import { LabelInValue } from '../../shared/schema';
 
+// @ts-ignore
+// eslint-disable-next-line
+export interface Props<T = ''> extends Pick<FormItemProps, 'rules'> {}
+
+// @ts-ignore
+// eslint-disable-next-line
 export interface Props<T = ''> extends FieldRenderProps<T> {
   /**
    * request remote data
@@ -70,6 +76,7 @@ const FormItemRender: React.FC<Props> = (props) => {
       name: formItemProps.fieldName,
       label: formItemProps.label,
       dependencies: formItemProps.dependencies,
+      rules: formItemProps.rules,
       ...formItemProps.formItemSpecProps,
     };
     const fieldProps = {

@@ -36,29 +36,49 @@ pnpm add antd-pro-schema-form
 ### normal
 ```tsx
 import React from 'react';
+import { Form, Button } from 'antd';
 import SchemaForm from 'antd-pro-schema-form';
 
 export default () => {
-const schema = [{
-  fieldName: 'title',
-  label: 'title',
-  type: 'input',
-}];
+  const [formRef] = Form.useForm();
 
-return <SchemaForm schema={schema} />;
+  const schema = [{
+    fieldName: 'title',
+    label: 'title',
+    type: 'input',
+    placeholder: 'please input',
+    rules: [{ required: true, message: 'Please input title' }]
+  }]
+  const onSubmit = () => {
+    alert(formRef.current.getFieldsValue());
+  };
+  return (
+    <>
+      <SchemaForm form={formRef} schema={schema} />
+      <Button onClick={onSubmit}>
+        Submit
+      </Button>
+    </>
+  )
+}
 ```
 
 ### group schema
 ```tsx
 import React from 'react';
+import { Form, Button } from 'antd';
 import SchemaForm from 'antd-pro-schema-form';
 
 export default () => {
+  const [formInstance] = Form.useForm();
+
   const schema = {
     title: {
       fieldName: 'title',
-      label: 'group schema field title',
+      label: 'title',
       type: 'input',
+      placeholder: 'please input',
+      rules: [{ required: true, message: 'Please input title' }]
     }
   };
   const schemaGroups = [{
@@ -66,7 +86,18 @@ export default () => {
       'title',
     ]
   }];
-  return <SchemaForm schema={schema} schemaGroups={schemaGroups} />;
+
+  const onSubmit = () => {
+    alert(JSON.stringify(formInstance.getFieldsValue()));
+  };
+  return (
+    <>
+      <SchemaForm form={formInstance} schema={schema} schemaGroups={schemaGroups} />
+      <Button onClick={onSubmit}>
+        Submit
+      </Button>
+    </>
+  )
 }
 ```
 
