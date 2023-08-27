@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0...antd-pro-schema-form@1.1.0) (2023-08-27)
+
+
+### Bug Fixes
+
+* schema configuration item disable not working ([cddd09a](https://github.com/drdevelop/antd-pro/commit/cddd09a2fa1c0ec5f910cc329d6054312e96d9b4))
+
+
+### Features
+
+* add schema configuration item `rules` ([a3a69a9](https://github.com/drdevelop/antd-pro/commit/a3a69a9e2000cf988a3a3360c4347bd27c50cd84))
+
+
+
+
+
 # [1.0.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.34...antd-pro-schema-form@1.0.0) (2023-08-24)
 
 
