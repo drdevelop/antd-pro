@@ -13,16 +13,32 @@ toc: content
  * title: render
 * description: The most comprehensive form items can be found in [explore more](#/en/schema-form/register-components#all-internal-components)
 */
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [formRef] = Form.useForm();
+
     const schema = [{
       fieldName: 'title',
       label: 'title',
       type: 'input',
-      placeholder: 'please input'
+      placeholder: 'please input',
+      rules: [{ required: true, message: 'Please input title' }]
     }]
-    return <SchemaForm schema={schema} />
+    const onSubmit = () => {
+      console.log('formRef', formRef.current)
+      alert(formRef.current.getFieldsValue());
+    };
+    return (
+      <>
+        <SchemaForm form={formRef} schema={schema} />
+        <Button onClick={onSubmit}>
+          Submit
+        </Button>
+      </>
+    )
   }
 ```
 
@@ -33,15 +49,20 @@ toc: content
  * title: schemaGroups indicate to use the form schema as a dictionary, group fieldNames in list for rendering
  * description: notice:The schema needs to be in object format, [click me to explore more](#/en/schema-form/group-schema#schemaformprops)
  */
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [formInstance] = Form.useForm();
+
     const schema = {
       title: {
         fieldName: 'title',
         label: 'title',
         type: 'input',
-        placeholder: 'please input'
+        placeholder: 'please input',
+        rules: [{ required: true, message: 'Please input title' }]
       }
     };
     const schemaGroups = [{
@@ -49,12 +70,24 @@ toc: content
         'title',
       ]
     }];
-    return <SchemaForm schema={schema} schemaGroups={schemaGroups} />
+
+    const onSubmit = () => {
+      alert(JSON.stringify(formInstance.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={formInstance} schema={schema} schemaGroups={schemaGroups} />
+        <Button onClick={onSubmit}>
+          Submit
+        </Button>
+      </>
+    )
   }
 ```
 
 ## API
 ### SchemaFormProps
+> rest hide properties are antd form props
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -81,3 +114,4 @@ toc: content
 | formItemSpecProps | antd form item props<br />(pay attention to distinguishing elementSpecProps) | `FormItemProps` | `--` |
 | fusion | convert form item value when form initialize，need return formated value | `(value: any) => any` | `--` |
 | fission | convert form item value when form submit，need return formated value | `(value: any) => any` | `--` |
+| disabled | disable component input | `boolean` | `false` |

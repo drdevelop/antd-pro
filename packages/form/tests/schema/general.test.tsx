@@ -9,6 +9,7 @@ function TestComponent() {
     label: 'title',
     type: 'input',
     placeholder: 'please input',
+    rules: [{ required: true, message: 'Please input title' }],
   }];
   return <SchemaForm schema={schema} />;
 }
