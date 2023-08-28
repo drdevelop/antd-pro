@@ -4,9 +4,10 @@ import { Schema } from '../types';
 import { NamePath } from 'antd/es/form/interface';
 
 export default (shadowForm: FormInstance, instance: FormInstance, schema: Schema) => {
-  const oldGetFieldsValue = instance.getFieldsValue;
-  shadowForm.getFieldsValue = (...args) => {
-    const values = oldGetFieldsValue(...(args as [true | NamePath[], (meta: any) => boolean]));
-    return fissionValue(schema, values);
+  const oldGetFieldValue = instance.getFieldValue;
+  shadowForm.getFieldValue = (name: NamePath) => {
+    const fieldValue = oldGetFieldValue(name);
+    const fieldNameStr = String(name);
+    return fissionValue(schema, { [fieldNameStr]: fieldValue })[fieldNameStr];
   };
 };

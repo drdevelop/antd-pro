@@ -1,9 +1,16 @@
 import { FormInstance } from 'antd';
+import decorateGetFieldValue from './decorateGetFieldValue';
 import decorateGetFieldsValue from './decorateGetFieldsValue';
+import decorateSetFieldValue from './decorateSetFieldValue';
 import decorateSetFieldsValue from './decorateSetFieldsValue';
 import { Schema } from '../types';
 
-const decorators = [decorateGetFieldsValue, decorateSetFieldsValue];
+const decorators = [
+  decorateGetFieldValue,
+  decorateGetFieldsValue,
+  decorateSetFieldValue,
+  decorateSetFieldsValue,
+];
 
 function copyFormMethods(shadowForm: FormInstance, instance: FormInstance) {
   const keys = Object.keys(instance);
