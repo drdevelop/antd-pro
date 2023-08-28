@@ -28,16 +28,35 @@ toc: content
       fusion(value) {
         return dayjs(value);
       }
+    }, {
+      fieldName: 'date2',
+      label: '时间2',
+      type: 'datePicker',
+      initialValue: '2023-08-08',
+      fusion(value) {
+        return dayjs(value);
+      }
+    }, {
+      fieldName: 'date3',
+      label: '时间3',
+      type: 'datePicker',
     }]
 
     useEffect(() => {
       if (!formRef.current) return;
-      console.log('current', formRef.current);
+      // 你可以通过setFieldsValue或者schema的initialValue、或者schemaForm props的initialValues设置初始值，三种方式等价
       formRef.current.setFieldsValue({
         date: '2023-08-08',
       })
     }, [formRef])
-    return <SchemaForm enableValueAtomize schema={schema} ref={formRef} />
+    return <SchemaForm
+      enableValueAtomize
+      initialValues={{
+        date3: dayjs('2023-08-08')
+      }}
+      schema={schema}
+      ref={formRef}
+    />
   }
 ```
 
