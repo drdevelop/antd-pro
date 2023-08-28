@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.1.0...antd-pro-schema-form@1.2.0) (2023-08-28)
+
+
+### Features
+
+* add schema initialValue property to set initial value ([bafca56](https://github.com/drdevelop/antd-pro/commit/bafca56c0294b3ed308be2aebc71c93dc0736b3d))
+
+
+
+
+
 # [1.1.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0...antd-pro-schema-form@1.1.0) (2023-08-27)
 
 
