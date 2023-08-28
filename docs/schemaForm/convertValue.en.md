@@ -20,7 +20,6 @@ toc: content
 
   export default () => {
     const formRef = useRef();
-
     const schema = [{
       fieldName: 'date',
       label: 'date',
@@ -28,15 +27,36 @@ toc: content
       fusion(value) {
         return dayjs(value);
       }
+    }, {
+      fieldName: 'date2',
+      label: 'date2',
+      type: 'datePicker',
+      initialValue: '2023-08-08',
+      fusion(value) {
+        return dayjs(value);
+      }
+    }, {
+      fieldName: 'date3',
+      label: 'date3',
+      type: 'datePicker',
     }]
 
     useEffect(() => {
       if (!formRef.current) return;
+      // the same as formInstance.setFieldsValue
+      // you can set initial value by setFieldsValue、schema.initialValue or schemaForm props 'initialValues'
       formRef.current.setFieldsValue({
         date: '2023-08-08',
       })
     }, [formRef])
-    return <SchemaForm enableValueAtomize schema={schema} ref={formRef} />
+    return <SchemaForm
+      enableValueAtomize
+      initialValues={{
+        date3: dayjs('2023-08-08')
+      }}
+      schema={schema}
+      ref={formRef}
+    />
   }
 ```
 

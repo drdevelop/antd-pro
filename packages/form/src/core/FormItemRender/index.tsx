@@ -5,7 +5,7 @@ import { LabelInValue } from '../../shared/schema';
 
 // @ts-ignore
 // eslint-disable-next-line
-export interface Props<T = ''> extends Pick<FormItemProps, 'rules'> {}
+export interface Props<T = ''> extends Pick<FormItemProps, 'initialValue' | 'rules'> {}
 
 // @ts-ignore
 // eslint-disable-next-line
@@ -73,6 +73,7 @@ const FormItemRender: React.FC<Props> = (props) => {
 
   const formItem = (formItemProps: Props) => {
     const formItemSpecProps: FormItemProps = {
+      initialValue: formItemProps.initialValue,
       name: formItemProps.fieldName,
       label: formItemProps.label,
       dependencies: formItemProps.dependencies,
