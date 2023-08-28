@@ -5,6 +5,7 @@ import { GroupRule } from '../../shared/schema';
 import schemaItemToNode from './schemaItemToNode';
 import { Schema } from '../types';
 import reflectFormInstance from '../Decorator/reflectFormInstance';
+import { fusionValue } from './valueAtomize';
 
 // @ts-ignore
 // eslint-disable-next-line
@@ -40,6 +41,7 @@ export interface RefCurrent extends FormInstance {
 
 function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
   const {
+    initialValues: parentInitialValues,
     enableValueAtomize,
     form: outerformInstance,
     components,
@@ -68,6 +70,11 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
   }
 
   const [forceRenderKey, setForceRenderKey] = useState<number>(0);
+
+  const initialValues = useMemo(() => {
+    if (!enableValueAtomize) return parentInitialValues;
+    return fusionValue(schema as Schema, parentInitialValues || {});
+  }, [enableValueAtomize, schema, parentInitialValues]);
 
   useImperativeHandle(ref, () => ({
     forceRefresh: () => setForceRenderKey((oldKey) => ++oldKey),
@@ -98,15 +105,27 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
     }
   };
 
-  const renderFormItemList = (group: GroupRule) => {
-    return Object.values(group.list).map(
-      (pickName) => schemaItemToNode(
-        schemaDict,
-        pickName,
-        components,
-        globalState,
-      ),
+  const renderFormItem = (pickName: string) => {
+    if (
+      enableValueAtomize &&
+      typeof schemaDict[pickName].fusion === 'function' &&
+      schemaDict[pickName].initialValue !== undefined
+    ) {
+      // docorate initialValue when enableValueAtomize
+      schemaDict[pickName].initialValue = schemaDict[pickName].fusion(
+        schemaDict[pickName].initialValue,
+      );
+    }
+    return schemaItemToNode(
+      schemaDict,
+      pickName,
+      components,
+      globalState,
     );
+  };
+
+  const renderFormItemList = (group: GroupRule) => {
+    return Object.values(group.list).map(renderFormItem);
   };
 
   const defaultGroupRender = (formItemList: React.ReactNode[]) => {
@@ -139,6 +158,7 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
   return (
     <Form
       form={innerFormInstance}
+      initialValues={initialValues}
       {...restFormProps}
     >
       <>
