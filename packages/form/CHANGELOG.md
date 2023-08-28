@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.0...antd-pro-schema-form@1.2.1) (2023-08-28)
+
+
+### Bug Fixes
+
+* getFieldsValue passing parameters not working ([f8ef5ca](https://github.com/drdevelop/antd-pro/commit/f8ef5cabf9b9ff57a51edd8e65cfb125974effa5))
+* getFieldValue and setFieldValue not working when set option 'enableValueAtomize': true ([741313e](https://github.com/drdevelop/antd-pro/commit/741313e6b84c371f493a8e8044a890ad1819133d))
+
+
+
+
+
 # [1.2.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.1.0...antd-pro-schema-form@1.2.0) (2023-08-28)
 
 
