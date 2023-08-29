@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.2...antd-pro-schema-form@1.2.3) (2023-08-29)
+
+
+### Bug Fixes
+
+* SchemaForm cannot be used as a JSX component ([495f8a5](https://github.com/drdevelop/antd-pro/commit/495f8a59a8aedad5b337d6b72bc4a5d0302d9891))
+
+
+
+
+
 ## [1.2.2](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.1...antd-pro-schema-form@1.2.2) (2023-08-29)
 
 
