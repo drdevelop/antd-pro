@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { Form } from 'antd';
 import { FormInstance, FormProps } from 'antd/es/form';
 import { Props as FieldRenderProps } from '../FieldRender';
@@ -7,6 +7,8 @@ import schemaItemToNode from './schemaItemToNode';
 import { Schema } from '../types';
 import reflectFormInstance from '../Decorator/reflectFormInstance';
 import { fusionValue } from './valueAtomize';
+import usePrevious from '../hooks/usePrevious';
+import { shallowEqual } from '../../shared/helper';
 
 // @ts-ignore
 // eslint-disable-next-line
@@ -63,6 +65,8 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
       : innerFormInstance,
   );
   const decorateRef = useRef<boolean>(false);
+
+  const prevGlobalState = usePrevious(globalState);
 
   if (enableValueAtomize && !decorateRef.current) {
     // enable value fusion and fission ability
@@ -154,7 +158,13 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
     } else {
       return renderGroups();
     }
-  }, [schema, defineSchemaGroups, globalState, forceRenderKey]);
+  }, [schema, defineSchemaGroups, forceRenderKey]);
+
+  useEffect(() => {
+    if (!shallowEqual(prevGlobalState, globalState)) {
+      setForceRenderKey((oldKey) => ++oldKey);
+    }
+  }, [globalState]);
 
   return (
     <Form
