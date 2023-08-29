@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.1...antd-pro-schema-form@1.2.2) (2023-08-29)
+
+
+### Bug Fixes
+
+* antdv4 type import fail ([00bccf1](https://github.com/drdevelop/antd-pro/commit/00bccf198339e8bcdb102f6a0f87bdb9997e8397))
+* shallow compare globalState to rerender schema for optimize performance ([63551d6](https://github.com/drdevelop/antd-pro/commit/63551d6c2182e7c1182cfaeecd0eca2ff0b9ca4e))
+
+
+
+
+
 ## [1.2.1](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.0...antd-pro-schema-form@1.2.1) (2023-08-28)
 
 
