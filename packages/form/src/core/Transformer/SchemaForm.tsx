@@ -1,5 +1,6 @@
 import React, { useImperativeHandle, useMemo, useRef, useState } from 'react';
-import { Form, FormInstance, FormProps } from 'antd';
+import { Form } from 'antd';
+import { FormInstance, FormProps } from 'antd/es/form';
 import { Props as FieldRenderProps } from '../FieldRender';
 import { GroupRule } from '../../shared/schema';
 import schemaItemToNode from './schemaItemToNode';

@@ -1,4 +1,4 @@
-import { FormInstance } from 'antd';
+import { FormInstance } from 'antd/es/form';
 import { fissionValue } from '../Transformer/valueAtomize';
 import { Schema } from '../types';
 import { NamePath } from 'antd/es/form/interface';
