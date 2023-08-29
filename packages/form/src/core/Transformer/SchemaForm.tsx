@@ -162,6 +162,8 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
 
   useEffect(() => {
     if (!shallowEqual(prevGlobalState, globalState)) {
+      // shallow compare prevGlobalState and currentGlobalState, like react props
+      // avoid rerender many times
       setForceRenderKey((oldKey) => ++oldKey);
     }
   }, [globalState]);
