@@ -1,4 +1,4 @@
-import { FormInstance } from 'antd';
+import { FormInstance } from 'antd/es/form';
 import decorateGetFieldValue from './decorateGetFieldValue';
 import decorateGetFieldsValue from './decorateGetFieldsValue';
 import decorateSetFieldValue from './decorateSetFieldValue';

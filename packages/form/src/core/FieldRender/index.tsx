@@ -1,4 +1,4 @@
-import { FormInstance } from 'antd';
+import { FormInstance } from 'antd/es/form';
 import React from 'react';
 import { LabelInValue } from '../../shared/schema';
 import InnerComponents from '../../components';

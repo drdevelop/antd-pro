@@ -1,4 +1,4 @@
-import { FormInstance } from 'antd';
+import { FormInstance } from 'antd/es/form';
 import { fusionValue } from '../Transformer/valueAtomize';
 import { Schema } from '../types';
 

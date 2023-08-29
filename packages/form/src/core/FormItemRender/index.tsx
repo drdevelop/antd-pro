@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Form, FormItemProps } from 'antd';
+import { Form } from 'antd';
+import { FormItemProps } from 'antd/es/form/FormItem';
 import FieldRender, { Props as FieldRenderProps } from '../FieldRender';
 import { LabelInValue } from '../../shared/schema';
 
