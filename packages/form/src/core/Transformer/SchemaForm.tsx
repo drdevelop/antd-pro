@@ -185,7 +185,7 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
 declare module 'react' {
   function forwardRef<T, P = {}>(
     render: (props: P, ref: React.Ref<T>) => React.ReactNode | null
-  ): ((props: P & React.RefAttributes<T>) => React.ReactNode | React.JSX.Element | null);
+  ): ((props: P & React.RefAttributes<T>) => React.ReactElement);
 }
 
 export default React.forwardRef(SchemaForm);
