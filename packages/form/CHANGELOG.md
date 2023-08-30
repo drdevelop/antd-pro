@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.3...antd-pro-schema-form@1.2.4) (2023-08-30)
+
+
+### Bug Fixes
+
+* Typescript ([c101dec](https://github.com/drdevelop/antd-pro/commit/c101deca9b1726c334cd12302d9dee30b8f54bc1))
+
+
+
+
+
 ## [1.2.3](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.2...antd-pro-schema-form@1.2.3) (2023-08-29)
 
 
