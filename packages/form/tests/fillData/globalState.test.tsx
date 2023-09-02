@@ -48,6 +48,23 @@ function TestComponent1() {
   return <SchemaForm schema={schema} globalState={data} />;
 }
 
+function TestComponent3() {
+  const [forceRenderKey, setForceRenderKey] = useState<number>();
+
+  const schema = useMemo<SchemaFormProps['schema']>(() => ([{
+    fieldName: 'select',
+    label: 'select',
+    type: 'select',
+  }]), []);
+
+  console.log(forceRenderKey);
+
+  useEffect(() => {
+    setForceRenderKey(2);
+  }, []);
+  return <SchemaForm schema={schema} globalState={{ a: 1 }} />;
+}
+
 test('global state is object', async () => {
   await act(async () => {
     return render(
@@ -64,3 +81,10 @@ test('global state is array', async () => {
   });
 });
 
+test('global state is equal', async () => {
+  await act(async () => {
+    return render(
+      <TestComponent3 />,
+    );
+  });
+});
