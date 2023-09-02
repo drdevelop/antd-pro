@@ -6,7 +6,7 @@ import { GroupRule } from '../../shared/schema';
 import schemaItemToNode from './schemaItemToNode';
 import { Schema } from '../types';
 import reflectFormInstance from '../Decorator/reflectFormInstance';
-import { fusionValue } from './valueAtomize';
+import { fissionValue, fusionValue } from './valueAtomize';
 import usePrevious from '../hooks/usePrevious';
 import { shallowEqual } from '../../shared/helper';
 
@@ -53,6 +53,7 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
     groupRender,
     groupsRender,
     globalState,
+    onFinish,
     ...restFormProps
   } = props;
 
@@ -75,11 +76,6 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
   }
 
   const [forceRenderKey, setForceRenderKey] = useState<number>(0);
-
-  const initialValues = useMemo(() => {
-    if (!enableValueAtomize) return parentInitialValues;
-    return fusionValue(schema as Schema, parentInitialValues || {});
-  }, [enableValueAtomize, schema, parentInitialValues]);
 
   useImperativeHandle(ref, () => ({
     forceRefresh: () => setForceRenderKey((oldKey) => ++oldKey),
@@ -168,10 +164,24 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
     }
   }, [globalState]);
 
+  const initialValues = useMemo(() => {
+    if (!enableValueAtomize) return parentInitialValues;
+    return fusionValue(schema as Schema, parentInitialValues || {});
+  }, [enableValueAtomize, schema, parentInitialValues]);
+
+  const decorateOnFinish = (values: any) => {
+    if (!enableValueAtomize) {
+      onFinish?.(values);
+      return;
+    }
+    onFinish?.(fissionValue(schema as Schema, values));
+  };
+
   return (
     <Form
       form={innerFormInstance}
       initialValues={initialValues}
+      onFinish={decorateOnFinish}
       {...restFormProps}
     >
       <>
