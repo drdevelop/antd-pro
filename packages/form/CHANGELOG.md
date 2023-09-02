@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.4...antd-pro-schema-form@1.2.5) (2023-09-02)
+
+
+### Bug Fixes
+
+* onFinish received values is not formatted value when `enableValueAtomize: true` ([19c2fc8](https://github.com/drdevelop/antd-pro/commit/19c2fc8f5abd0f91c281fc5a1ed4847e06b120ad))
+
+
+
+
+
 ## [1.2.4](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.3...antd-pro-schema-form@1.2.4) (2023-08-30)
 
 
