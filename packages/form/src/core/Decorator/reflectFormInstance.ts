@@ -1,6 +1,7 @@
 import { FormInstance } from 'antd/es/form';
 import decorateGetFieldValue from './decorateGetFieldValue';
 import decorateGetFieldsValue from './decorateGetFieldsValue';
+import decorateValidateFields from './decorateValidateFields';
 import decorateSetFieldValue from './decorateSetFieldValue';
 import decorateSetFieldsValue from './decorateSetFieldsValue';
 import { Schema } from '../types';
@@ -8,6 +9,7 @@ import { Schema } from '../types';
 const decorators = [
   decorateGetFieldValue,
   decorateGetFieldsValue,
+  decorateValidateFields,
   decorateSetFieldValue,
   decorateSetFieldsValue,
 ];
