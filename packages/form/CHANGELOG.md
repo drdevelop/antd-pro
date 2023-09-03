@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.6](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.5...antd-pro-schema-form@1.2.6) (2023-09-03)
+
+
+### Bug Fixes
+
+* validateFields return values not formatted when `enableAtomize: true` ([6d45515](https://github.com/drdevelop/antd-pro/commit/6d455159ec5aa0ae6116fbb24c94fe57ece47023))
+
+
+
+
+
 ## [1.2.5](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.4...antd-pro-schema-form@1.2.5) (2023-09-02)
 
 
