@@ -10,10 +10,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * onFinish received values is not formatted value when `enableValueAtomize: true` ([19c2fc8](https://github.com/drdevelop/antd-pro/commit/19c2fc8f5abd0f91c281fc5a1ed4847e06b120ad))
 
-
-
-
-
 ## [1.2.4](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.3...antd-pro-schema-form@1.2.4) (2023-08-30)
 
 
@@ -33,9 +29,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * SchemaForm cannot be used as a JSX component ([495f8a5](https://github.com/drdevelop/antd-pro/commit/495f8a59a8aedad5b337d6b72bc4a5d0302d9891))
 
 
-
-
-
 ## [1.2.2](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.1...antd-pro-schema-form@1.2.2) (2023-08-29)
 
 
@@ -43,9 +36,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * antdv4 type import fail ([00bccf1](https://github.com/drdevelop/antd-pro/commit/00bccf198339e8bcdb102f6a0f87bdb9997e8397))
 * shallow compare globalState to rerender schema for optimize performance ([63551d6](https://github.com/drdevelop/antd-pro/commit/63551d6c2182e7c1182cfaeecd0eca2ff0b9ca4e))
-
-
-
 
 
 ## [1.2.1](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.0...antd-pro-schema-form@1.2.1) (2023-08-28)
@@ -57,18 +47,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * getFieldValue and setFieldValue not working when set option 'enableValueAtomize': true ([741313e](https://github.com/drdevelop/antd-pro/commit/741313e6b84c371f493a8e8044a890ad1819133d))
 
 
-
-
-
 # [1.2.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.1.0...antd-pro-schema-form@1.2.0) (2023-08-28)
 
 
 ### Features
 
 * add schema initialValue property to set initial value ([bafca56](https://github.com/drdevelop/antd-pro/commit/bafca56c0294b3ed308be2aebc71c93dc0736b3d))
-
-
-
 
 
 # [1.1.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0...antd-pro-schema-form@1.1.0) (2023-08-27)
@@ -82,10 +66,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * add schema configuration item `rules` ([a3a69a9](https://github.com/drdevelop/antd-pro/commit/a3a69a9e2000cf988a3a3360c4347bd27c50cd84))
-
-
-
-
 
 # [1.0.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.34...antd-pro-schema-form@1.0.0) (2023-08-24)
 
@@ -101,11 +81,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * schema add placeholder ([41ac91e](https://github.com/drdevelop/antd-pro/commit/41ac91e518b93fc0e8935a4a9a4c4286ddbfb3a8))
 
 
-
-
-
 # [1.0.0-rc.34](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.0.0-rc.33...antd-pro-schema-form@1.0.0-rc.34) (2023-08-22)
-
 
 ### Bug Fixes
 
