@@ -7,16 +7,20 @@ order: 5
 toc: content
 ---
 
-## 全局数据注入到schema中使用
+## GlobalState inject schema for use
 
 ```tsx
 /**
- * title: 组件通过globalState将数据注入到schema中供其使用
- * description: 表单schema可以通过mapStateToSchema获取注入的globalState
+ * title: component inject globalState to schema
+ * description: form schema can get injected globalState by mapStateToSchema
  */
+  import React from 'react';
+  import { Form, Button } from 'antd'
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
+
     const globalState = [{
       label: '1',
       value: 1,
@@ -24,40 +28,54 @@ toc: content
 
     const schema = [{
       fieldName: 'select',
-      label: '下拉选择',
+      label: 'select',
       type: 'select',
       mapStateToSchema(globalState) {
         return { data: globalState };
       }
     }]
-    return <SchemaForm schema={schema} globalState={globalState} />
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} globalState={globalState} />
+        <Button type="primary" onClick={onSubmit}>
+          submit
+        </Button>
+      </>
+    )
   }
 ```
 
-## B表单项依赖A表单项值选择是否展示
+## form item B depend on A to decide if show
 
 ```tsx
 /**
- * title: 设置dependencies后，component为函数
- * description: 表单项component属性若为普通函数形式（非函数组件），则引擎会自动将其识别并传递`form实例`；<br/>你可以通过form实例获取依赖的表单值进行自主选择是否显示表单项<br/>注意:若`返回null`代表不展示表单项
+ * title: after set dependencies，component is pure function
+ * description: If form item schema property 'component' is pure function type(not react function component), form engine will auto recognize and resolve `form instance`;<br/>you can get form item value of dependent by form instace, then decide whether to show it<br/>notice: if `return null`represent not show form item
  */
+  import React from 'react';
+  import { Form, Button } from 'antd'
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
+
     const schema = [{
       fieldName: 'versionType',
-      label: '版本',
+      label: 'versionType',
       type: 'radio',
       data: [{
-        label: '不限',
+        label: 'noLimit',
         value: 1,
       }, {
-        label: '自定义',
+        label: 'custom',
         value: 2,
       }]
     }, {
       fieldName: 'option',
-      label: '选择',
+      label: 'select',
       type: 'select',
       dependencies: ['versionType'],
       component: (form) => {
@@ -67,13 +85,23 @@ toc: content
           : null;
       },
       data: [{
-        label: '选项1',
+        label: 'option1',
         value: 1,
       }, {
-        label: '选项2',
+        label: 'option2',
         value: 2,
       }]
     }]
-    return <SchemaForm schema={schema} />
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          submit
+        </Button>
+      </>
+    )
   }
 ```

@@ -9,9 +9,12 @@ toc: content
 ## schema表单远程数据获取
 
 ```tsx
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
     const schema = [{
       fieldName: 'option',
       label: '选择',
@@ -26,16 +29,29 @@ toc: content
         }]
       }
     }]
-    return <SchemaForm schema={schema} />
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          提交
+        </Button>
+      </>
+    )
   }
 ```
 
 ## 表单项数据预加载
 
 ```tsx
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
     const schema = [{
       fieldName: 'versionType',
       label: '版本',
@@ -67,17 +83,30 @@ toc: content
           value: 2,
         }]
       }
-    }]
-    return <SchemaForm schema={schema} />
+    }];
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          提交
+        </Button>
+      </>
+    )
   }
 ```
 
 ## 表单项数据懒加载
 
 ```tsx
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
     const schema = [{
       fieldName: 'versionType',
       label: '版本',
@@ -111,6 +140,16 @@ toc: content
           : null;
       }
     }]
-    return <SchemaForm schema={schema} />
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          提交
+        </Button>
+      </>
+    )
   }
 ```

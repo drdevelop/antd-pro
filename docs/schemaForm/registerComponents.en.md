@@ -9,7 +9,10 @@ toc: content
 ## all internal components
 
 ```tsx
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
+
   const options = [{
     label: 'option1',
     value: 1,
@@ -17,7 +20,10 @@ toc: content
     label: 'option2',
     value: 2,
   }];
+
   export default () => {
+    const [form] = Form.useForm();
+
     const schema = [{
       fieldName: 'input',
       label: 'input',
@@ -72,8 +78,18 @@ toc: content
       fieldName: 'timeRangePicker',
       label: 'time range',
       type: 'timeRangePicker',
-    }]
-    return <SchemaForm schema={schema} />
+    }];
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          submit
+        </Button>
+      </>
+    );
   }
 ```
 
@@ -81,10 +97,13 @@ toc: content
 No need to deliberately encapsulate the react node to be encapsulated as a component
 
 ```tsx
-  import { Form, Input } from 'antd';
+  import React from 'react';
+  import { Form, Input, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
+
     const CustomComponent = (
       <div>
         title:
@@ -101,15 +120,26 @@ No need to deliberately encapsulate the react node to be encapsulated as a compo
       component: CustomComponent,
     }];
 
-    return <SchemaForm schema={schema} />
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          submit
+        </Button>
+      </>
+    );
   }
 ```
 
 ## Local registration component
 
 ```tsx
+  import React from 'react';
+  import { Form, Input, Button } from 'antd';
   import SchemaForm, { SchemaFormProps } from 'antd-pro-schema-form';
-  import { Input } from 'antd';
 
   type ExtensionType = 'customInput';
 
@@ -128,12 +158,25 @@ No need to deliberately encapsulate the react node to be encapsulated as a compo
   };
 
   export default () => {
+    const [form] = Form.useForm();
+
     const schema: SchemaFormProps<ExtensionType>['schema'] = [{
       fieldName: 'title',
       label: 'custom input',
       type: 'customInput',
-    }]
-    return <SchemaForm<ExtensionType> schema={schema} components={{ customInput: CustomInput }} />
+    }];
+
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+         <SchemaForm<ExtensionType> form={form} schema={schema} components={{ customInput: CustomInput }} />
+        <Button type="primary" onClick={onSubmit}>
+          submit
+        </Button>
+      </>
+    );
   }
 ```
 
@@ -141,8 +184,9 @@ No need to deliberately encapsulate the react node to be encapsulated as a compo
 ## Global registration component
 
 ```tsx
+  import React from 'react';
+  import { Form, Input, Button } from 'antd';
   import SchemaForm, { SchemaFormProps, registerComponents, registerComponent } from 'antd-pro-schema-form';
-  import { Input } from 'antd';
 
   type ExtensionType = 'customInput';
 
@@ -162,11 +206,24 @@ No need to deliberately encapsulate the react node to be encapsulated as a compo
   registerComponents({ customInput: CustomInput });
 
   export default () => {
+    const [form] = Form.useForm();
+
     const schema: SchemaFormProps<ExtensionType>['schema'] = [{
       fieldName: 'title',
       label: 'custom input',
       type: 'customInput',
-    }]
-    return <SchemaForm schema={schema} />
+    }];
+
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          submit
+        </Button>
+      </>
+    );
   }
 ```

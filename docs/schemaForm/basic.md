@@ -17,7 +17,7 @@ toc: content
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
-    const [formInstance] = Form.useForm();
+    const [form] = Form.useForm();
     const schema = [{
       fieldName: 'title',
       label: '标题',
@@ -26,12 +26,12 @@ toc: content
       rules: [{ required: true, message: '请输入标题' }]
     }]
     const onSubmit = () => {
-      alert(JSON.stringify(formInstance.getFieldsValue()));
+      alert(JSON.stringify(form.getFieldsValue()));
     };
     return (
       <>
-        <SchemaForm form={formInstance} schema={schema} />
-        <Button onClick={onSubmit}>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
           提交
         </Button>
       </>
@@ -51,7 +51,7 @@ toc: content
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
-    const [formInstance] = Form.useForm();
+    const [form] = Form.useForm();
     const schema = {
       title: {
         fieldName: 'title',
@@ -67,12 +67,12 @@ toc: content
       ]
     }];
     const onSubmit = () => {
-      alert(JSON.stringify(formInstance.getFieldsValue()));
+      alert(JSON.stringify(form.getFieldsValue()));
     };
     return (
       <>
-        <SchemaForm form={formInstance} schema={schema} schemaGroups={schemaGroups} />
-        <Button onClick={onSubmit}>
+        <SchemaForm form={form} schema={schema} schemaGroups={schemaGroups} />
+        <Button type="primary" onClick={onSubmit}>
           提交
         </Button>
       </>

@@ -13,13 +13,16 @@ toc: content
 * title: schemaGroups indicate to use the form schema as a dictionary, group fieldNames in list for rendering
  * description: notice:The schema needs to be in object format
  */
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
     const schema = {
       title: {
         fieldName: 'title',
-        label: '分组schema标题',
+        label: 'group schema title',
         type: 'input',
       }
     };
@@ -28,7 +31,17 @@ toc: content
         'title',
       ]
     }];
-    return <SchemaForm schema={schema} schemaGroups={schemaGroups} />
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} schemaGroups={schemaGroups} />
+        <Button type="primary" onClick={onSubmit}>
+          submit
+        </Button>
+      </>
+    );
   }
 ```
 

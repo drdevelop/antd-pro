@@ -14,12 +14,13 @@ toc: content
  * title: 通过enableValueAtomize开关开启表单项值转换能力
  * description: 通过schema的`fusion`函数初始化时将字符串转换成表单项要求的dayjs时间对象
  */
-  import React, { useRef, useEffect } from 'react';
+  import React, { useEffect } from 'react';
+  import { Form, Button } from 'antd'
   import SchemaForm from 'antd-pro-schema-form';
   import dayjs from 'dayjs';
 
   export default () => {
-    const formRef = useRef();
+    const [form] = Form.useForm();
 
     const schema = [{
       fieldName: 'date',
@@ -43,20 +44,31 @@ toc: content
     }]
 
     useEffect(() => {
-      if (!formRef.current) return;
+      if (!form) return;
       // 你可以通过setFieldsValue或者schema的initialValue、或者schemaForm props的initialValues设置初始值，三种方式等价
-      formRef.current.setFieldsValue({
+      form.setFieldsValue({
         date: '2023-08-08',
       })
-    }, [formRef])
-    return <SchemaForm
-      enableValueAtomize
-      initialValues={{
-        date3: dayjs('2023-08-08')
-      }}
-      schema={schema}
-      ref={formRef}
-    />
+    }, [form])
+
+    const onSubmit = () => {
+      alert(form.getFieldsValue());
+    };
+    return (
+      <>
+        <SchemaForm
+          enableValueAtomize
+          initialValues={{
+            date3: dayjs('2023-08-08')
+          }}
+          schema={schema}
+          form={form}
+        />
+        <Button type="primary" onClick={onSubmit}>
+          提交
+        </Button>
+      </>
+    )
   }
 ```
 
@@ -73,9 +85,7 @@ toc: content
   import { Button, Form } from 'antd';
 
   export default () => {
-    const formRef = useRef();
-
-    const [formInstance] = Form.useForm();
+    const [form] = Form.useForm();
 
     const schema = [{
       fieldName: 'select',
@@ -87,13 +97,12 @@ toc: content
     }];
 
     const submit = () => {
-      // 和formInstance.getFieldsValue()效果一样
-      alert(JSON.stringify(formRef.current.getFieldsValue()));
+      alert(JSON.stringify(form.getFieldsValue()));
     };
 
     return (
       <>
-        <SchemaForm enableValueAtomize ref={formRef} form={formInstance} schema={schema} />
+        <SchemaForm enableValueAtomize form={form} schema={schema} />
         <Button type="primary" onClick={submit}>提交</Button>
       </>
     )
