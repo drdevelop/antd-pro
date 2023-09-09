@@ -15,11 +15,12 @@ toc: content
  * description: convert form item value by `fusion` function when initialize
  */
   import React, { useRef, useEffect } from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
   import dayjs from 'dayjs';
 
   export default () => {
-    const formRef = useRef();
+    const [form] = Form.useForm();
     const schema = [{
       fieldName: 'date',
       label: 'date',
@@ -42,21 +43,31 @@ toc: content
     }]
 
     useEffect(() => {
-      if (!formRef.current) return;
-      // the same as formInstance.setFieldsValue
+      if (!form) return;
+      // the same as form.setFieldsValue
       // you can set initial value by setFieldsValue、schema.initialValue or schemaForm props 'initialValues'
-      formRef.current.setFieldsValue({
+      form.setFieldsValue({
         date: '2023-08-08',
       })
-    }, [formRef])
-    return <SchemaForm
-      enableValueAtomize
-      initialValues={{
-        date3: dayjs('2023-08-08')
-      }}
-      schema={schema}
-      ref={formRef}
-    />
+    }, [form])
+    const onSubmit = () => {
+      alert(form.getFieldsValue());
+    };
+    return (
+      <>
+        <SchemaForm
+          enableValueAtomize
+          initialValues={{
+            date3: dayjs('2023-08-08')
+          }}
+          schema={schema}
+          form={form}
+        />
+        <Button type="primary" onClick={onSubmit}>
+          submit
+        </Button>
+      </>
+    )
   }
 ```
 
@@ -73,9 +84,7 @@ toc: content
   import { Button, Form } from 'antd';
 
   export default () => {
-    const formRef = useRef();
-
-    const [formInstance] = Form.useForm();
+    const [form] = Form.useForm();
 
     const schema = [{
       fieldName: 'select',
@@ -87,13 +96,12 @@ toc: content
     }];
 
     const submit = () => {
-      // the same as formInstance.getFieldsValue()
-      alert(JSON.stringify(formRef.current.getFieldsValue()));
+      alert(JSON.stringify(form.getFieldsValue()));
     };
 
     return (
       <>
-        <SchemaForm enableValueAtomize ref={formRef} form={formInstance} schema={schema} />
+        <SchemaForm enableValueAtomize form={form} schema={schema} />
         <Button type="primary" onClick={submit}>submit</Button>
       </>
     )

@@ -9,7 +9,10 @@ toc: content
 ## 所有内置组件示例
 
 ```tsx
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
+
   const options = [{
     label: '选项1',
     value: 1,
@@ -17,7 +20,10 @@ toc: content
     label: '选项2',
     value: 2,
   }];
+
   export default () => {
+    const [form] = Form.useForm();
+
     const schema = [{
       fieldName: 'input',
       label: '输入框',
@@ -72,8 +78,18 @@ toc: content
       fieldName: 'timeRangePicker',
       label: '时间范围选择框',
       type: 'timeRangePicker',
-    }]
-    return <SchemaForm schema={schema} />
+    }];
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          提交
+        </Button>
+      </>
+    );
   }
 ```
 
@@ -81,10 +97,13 @@ toc: content
 不用刻意把要展示的react节点封装成一个组件
 
 ```tsx
-  import { Form, Input } from 'antd';
+  import React from 'react';
+  import { Form, Input, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
+
     const CustomComponent = (
       <div>
         标题:
@@ -101,15 +120,26 @@ toc: content
       component: CustomComponent,
     }];
 
-    return <SchemaForm schema={schema} />
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          提交
+        </Button>
+      </>
+    );
   }
 ```
 
 ## 局部注册组件
 
 ```tsx
+  import React from 'react';
+  import { Form, Input, Button } from 'antd';
   import SchemaForm, { SchemaFormProps } from 'antd-pro-schema-form';
-  import { Input } from 'antd';
 
   type ExtensionType = 'customInput';
 
@@ -128,12 +158,25 @@ toc: content
   };
 
   export default () => {
+    const [form] = Form.useForm();
+
     const schema: SchemaFormProps<ExtensionType>['schema'] = [{
       fieldName: 'title',
       label: '自行注册的组件',
       type: 'customInput',
-    }]
-    return <SchemaForm<ExtensionType> schema={schema} components={{ customInput: CustomInput }} />
+    }];
+
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+       <SchemaForm<ExtensionType> form={form} schema={schema} components={{ customInput: CustomInput }} />
+        <Button type="primary" onClick={onSubmit}>
+          提交
+        </Button>
+      </>
+    );
   }
 ```
 
@@ -141,8 +184,9 @@ toc: content
 ## 全局注册组件
 
 ```tsx
+  import React from 'react';
+  import { Form, Input, Button } from 'antd';
   import SchemaForm, { SchemaFormProps, registerComponents, registerComponent } from 'antd-pro-schema-form';
-  import { Input } from 'antd';
 
   type ExtensionType = 'customInput';
 
@@ -162,11 +206,23 @@ toc: content
   registerComponents({ customInput: CustomInput });
 
   export default () => {
+    const [form] = Form.useForm();
+
     const schema: SchemaFormProps<ExtensionType>['schema'] = [{
       fieldName: 'title',
       label: '自行注册的组件',
       type: 'customInput',
-    }]
-    return <SchemaForm<ExtensionType> schema={schema} />
+    }];
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+       <SchemaForm<ExtensionType> form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          提交
+        </Button>
+      </>
+    );
   }
 ```

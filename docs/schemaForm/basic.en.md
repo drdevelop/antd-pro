@@ -34,7 +34,7 @@ toc: content
     return (
       <>
         <SchemaForm form={formRef} schema={schema} />
-        <Button onClick={onSubmit}>
+        <Button type="primary" onClick={onSubmit}>
           Submit
         </Button>
       </>
@@ -54,7 +54,7 @@ toc: content
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
-    const [formInstance] = Form.useForm();
+    const [form] = Form.useForm();
 
     const schema = {
       title: {
@@ -72,12 +72,12 @@ toc: content
     }];
 
     const onSubmit = () => {
-      alert(JSON.stringify(formInstance.getFieldsValue()));
+      alert(JSON.stringify(form.getFieldsValue()));
     };
     return (
       <>
-        <SchemaForm form={formInstance} schema={schema} schemaGroups={schemaGroups} />
-        <Button onClick={onSubmit}>
+        <SchemaForm form={form} schema={schema} schemaGroups={schemaGroups} />
+        <Button type="primary" onClick={onSubmit}>
           Submit
         </Button>
       </>

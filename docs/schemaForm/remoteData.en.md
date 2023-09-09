@@ -9,9 +9,12 @@ toc: content
 ## schema form fetch remote data
 
 ```tsx
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
     const schema = [{
       fieldName: 'option',
       label: 'select',
@@ -26,16 +29,29 @@ toc: content
         }]
       }
     }]
-    return <SchemaForm schema={schema} />
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          submit
+        </Button>
+      </>
+    )
   }
 ```
 
 ## form item data preload
 
 ```tsx
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
     const schema = [{
       fieldName: 'versionType',
       label: 'version',
@@ -68,16 +84,29 @@ toc: content
         }]
       }
     }]
-    return <SchemaForm schema={schema} />
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          submit
+        </Button>
+      </>
+    )
   }
 ```
 
 ## form item data lazyload
 
 ```tsx
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
     const schema = [{
       fieldName: 'versionType',
       label: 'version',
@@ -111,6 +140,16 @@ toc: content
           : null;
       }
     }]
-    return <SchemaForm schema={schema} />
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} />
+        <Button type="primary" onClick={onSubmit}>
+          submit
+        </Button>
+      </>
+    )
   }
 ```

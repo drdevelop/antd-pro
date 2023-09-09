@@ -13,9 +13,12 @@ toc: content
  * title: schemaGroups表示要将表单schema作为一个字典，里面的字段进行分组渲染
  * description: 注意：此时schema需为object对象形式
  */
+  import React from 'react';
+  import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
   export default () => {
+    const [form] = Form.useForm();
     const schema = {
       title: {
         fieldName: 'title',
@@ -28,7 +31,17 @@ toc: content
         'title',
       ]
     }];
-    return <SchemaForm schema={schema} schemaGroups={schemaGroups} />
+    const onSubmit = () => {
+      alert(JSON.stringify(form.getFieldsValue()));
+    };
+    return (
+      <>
+        <SchemaForm form={form} schema={schema} schemaGroups={schemaGroups} />
+        <Button type="primary" onClick={onSubmit}>
+          提交
+        </Button>
+      </>
+    );
   }
 ```
 
