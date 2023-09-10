@@ -13,6 +13,7 @@ toc: content
  * title: 渲染
 * description: 更全的表单项见[探索更多](#/schema-form/register-components#所有内置组件示例)
 */
+  import React from 'react';
   import { Form, Button } from 'antd';
   import SchemaForm from 'antd-pro-schema-form';
 
