@@ -185,8 +185,8 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
       {...restFormProps}
     >
       <>
-        {groupsNode}
         {props.children}
+        {groupsNode}
       </>
     </Form>
   );
