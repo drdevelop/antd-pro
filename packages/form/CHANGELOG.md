@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.6...antd-pro-schema-form@1.3.0) (2023-09-10)
+
+
+### Features
+
+* integrate old Form items to schemaForm ([2844175](https://github.com/drdevelop/antd-pro/commit/2844175ddecb1100f554d85dffdd2f764be10407))
+
+
+
+
+
 ## [1.2.6](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.5...antd-pro-schema-form@1.2.6) (2023-09-03)
 
 
