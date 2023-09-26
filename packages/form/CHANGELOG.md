@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.3.0...antd-pro-schema-form@1.4.0) (2023-09-26)
+
+
+### Features
+
+* add innerComponent-InputNumber named 'inputNumber' ([91e22d0](https://github.com/drdevelop/antd-pro/commit/91e22d070fc82954ba73ab2353c418a2c9f372d3))
+
+
+
+
+
 # [1.3.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.2.6...antd-pro-schema-form@1.3.0) (2023-09-10)
 
 
