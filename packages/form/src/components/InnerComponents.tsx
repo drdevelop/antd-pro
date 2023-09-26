@@ -1,4 +1,4 @@
-import { DatePicker, Input, Select, Switch, TreeSelect } from 'antd';
+import { DatePicker, Input, InputNumber, Select, Switch, TreeSelect } from 'antd';
 import ProRadio from './ProRadio';
 import ProCheckbox from './ProCheckbox';
 import withFieldDefault from './withFieldDefault';
@@ -57,6 +57,12 @@ const ProRadioButton = withFieldDefault(ProRadio, (props: FieldProps) => ({
 
 const InnerComponents = {
   input: Input,
+  /* todo: remove as any type
+    fix The inferred type of 'InnerComponents' cannot be named without a reference to
+    '.pnpm/rc-input-number@8.0.3_react-dom@18.2.0_react@18.2.0/node_modules/rc-input-number'.
+    This is likely not portable. A type annotation is necessary.
+  */
+  inputNumber: InputNumber as any,
   select: ProSelect,
   multipleSelect: ProMultipleSelect,
   radio: ProRadio,
