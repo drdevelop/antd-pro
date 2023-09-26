@@ -5,66 +5,70 @@ import '@testing-library/jest-dom';
 
 function TestComponent() {
   const options = [{
-    label: '选项1',
+    label: 'option1',
     value: 1,
   }, {
-    label: '选项2',
+    label: 'option2',
     value: 2,
   }];
 
   const schema: any = [{
     fieldName: 'input',
-    label: '输入框',
+    label: 'input',
     type: 'input',
   }, {
+    fieldName: 'inputNumber',
+    label: 'inputNumber',
+    type: 'inputNumber',
+  }, {
     fieldName: 'select',
-    label: '下拉选择框',
+    label: 'select',
     type: 'select',
     data: options,
   }, {
     fieldName: 'multipleSelect',
-    label: '多选下拉选择框',
+    label: 'multipleSelect',
     type: 'multipleSelect',
     data: options,
   }, {
     fieldName: 'treeSelect',
-    label: '树形选择',
+    label: 'treeSelect',
     type: 'treeSelect',
     data: options,
   }, {
     fieldName: 'radio',
-    label: '单选框',
+    label: 'radio',
     type: 'radio',
     data: options,
   }, {
     fieldName: 'radioButton',
-    label: '单选按钮框',
+    label: 'radioButton',
     type: 'radioButton',
     data: options,
   }, {
     fieldName: 'checkbox',
-    label: '多选框',
+    label: 'checkbox',
     type: 'checkbox',
     data: options,
   }, {
     fieldName: 'switch',
-    label: '开关',
+    label: 'switch',
     type: 'switch',
   }, {
     fieldName: 'datePicker',
-    label: '日期时间',
+    label: 'datePicker',
     type: 'datePicker',
   }, {
     fieldName: 'dateRangePicker',
-    label: '日期范围',
+    label: 'dateRangePicker',
     type: 'dateRangePicker',
   }, {
     fieldName: 'dateTimeRangePicker',
-    label: '日期时间范围选择框',
+    label: 'dateTimeRangePicker',
     type: 'dateTimeRangePicker',
   }, {
     fieldName: 'timeRangePicker',
-    label: '时间范围选择框',
+    label: 'timeRangePicker',
     type: 'timeRangePicker',
   }];
   return <SchemaForm schema={schema} />;
@@ -72,5 +76,5 @@ function TestComponent() {
 
 it('all types', () => {
   render(<TestComponent />);
-  expect(screen.getByText('输入框')).toBeInTheDocument();
+  expect(screen.getByText('input')).toBeInTheDocument();
 });

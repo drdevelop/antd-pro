@@ -29,6 +29,10 @@ toc: content
       label: '输入框',
       type: 'input',
     }, {
+      fieldName: 'inputNumber',
+      label: '数字输入框',
+      type: 'inputNumber',
+    }, {
       fieldName: 'select',
       label: '下拉选择框',
       type: 'select',

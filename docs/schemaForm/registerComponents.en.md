@@ -29,6 +29,10 @@ toc: content
       label: 'input',
       type: 'input',
     }, {
+      fieldName: 'inputNumber',
+      label: 'inputNumber',
+      type: 'inputNumber',
+    }, {
       fieldName: 'select',
       label: 'select',
       type: 'select',
