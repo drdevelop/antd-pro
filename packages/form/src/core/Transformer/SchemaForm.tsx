@@ -18,6 +18,12 @@ export interface Props<T = ''> extends Pick<FieldRenderProps<T>, 'components'> {
 // eslint-disable-next-line
 export interface Props<T = ''> extends FormProps {
   /**
+   * enable combine old form mode.
+   * if it is true, SchemaForm will not create form element, it will use parent form.
+   * and property 'form' is required
+   */
+  hybrid?: boolean;
+  /**
    * enable convert value when init or submit
    */
   enableValueAtomize?: boolean;
@@ -40,10 +46,19 @@ export interface RefCurrent extends FormInstance {
    * force rerender schema form
    */
   forceRefresh: () => void;
+  /**
+   * transform initial values
+   */
+  fusion: (values: any) => any;
+  /**
+   * transform submit values
+   */
+  fission: (values: any) => any;
 }
 
 function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
   const {
+    hybrid,
     initialValues: parentInitialValues,
     enableValueAtomize,
     form: outerformInstance,
@@ -72,13 +87,23 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
   if (enableValueAtomize && !decorateRef.current) {
     // enable value fusion and fission ability
     decorateRef.current = true;
-    reflectFormInstance(shadowFormRef.current, innerFormInstance, schema as Schema);
+    reflectFormInstance(
+      shadowFormRef.current,
+      hybrid ? outerformInstance : innerFormInstance,
+      schema as Schema,
+    );
   }
 
   const [forceRenderKey, setForceRenderKey] = useState<number>(0);
 
   useImperativeHandle(ref, () => ({
     forceRefresh: () => setForceRenderKey((oldKey) => ++oldKey),
+    fusion(values) {
+      return fusionValue(schema as Schema, values);
+    },
+    fission(values) {
+      return fissionValue(schema as Schema, values);
+    },
     ...shadowFormRef.current,
   }));
 
@@ -177,19 +202,27 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
     onFinish?.(fissionValue(schema as Schema, values));
   };
 
-  return (
-    <Form
-      form={innerFormInstance}
-      initialValues={initialValues}
-      onFinish={decorateOnFinish}
-      {...restFormProps}
-    >
-      <>
-        {props.children}
-        {groupsNode}
-      </>
-    </Form>
+  const children = (
+    <>
+      {props.children}
+      {groupsNode}
+    </>
   );
+
+  if (hybrid) {
+    return children;
+  } else {
+    return (
+      <Form
+        form={innerFormInstance}
+        initialValues={initialValues}
+        onFinish={decorateOnFinish}
+        {...restFormProps}
+      >
+        {children}
+      </Form>
+    );
+  }
 }
 
 declare module 'react' {
