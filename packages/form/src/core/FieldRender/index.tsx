@@ -74,7 +74,7 @@ const FieldRender: React.FC<Props> = (props) => {
 
   const Field = registryComponents[type];
   if (!Field) {
-    console.error(`component ${type} is not register`);
+    console.error(`component ${type} is not register.\n`, 'The register components are ', Object.keys(registryComponents));
     return null;
   }
 
