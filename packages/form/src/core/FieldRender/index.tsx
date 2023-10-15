@@ -59,7 +59,7 @@ const FieldRender: React.FC<Props> = (props) => {
     ...elementSpecProps,
   };
 
-  const registryComponents = {
+  const registeredComponents = {
     ...InnerComponents,
     ...components,
   };
@@ -72,9 +72,9 @@ const FieldRender: React.FC<Props> = (props) => {
     }
   }
 
-  const Field = registryComponents[type];
+  const Field = registeredComponents[type];
   if (!Field) {
-    console.error(`component ${type} is not register`);
+    console.error(`component ${type} is not register.\n`, 'The registered components are ', Object.keys(registeredComponents));
     return null;
   }
 
