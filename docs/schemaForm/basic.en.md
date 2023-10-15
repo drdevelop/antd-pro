@@ -98,6 +98,8 @@ toc: content
 | groupsRender | Combine renderer for all groups (parameter is React nodes for all schema renderings) | ` (child: React.ReactNode) => React.ReactNode` | `--` |
 | globalState | provide data for schema | `PlainObject` | `{}` |
 | components | registered components | `{ [key: string]: React.ReactNode; }` | `--` |
+| hybird | Combining with existing forms (at this point, you can embed the SchemeForm as part of your original form) | `boolean` | `false` |
+| enableValueAtomize | enable the ability to atomize and convert form item data. Once enabled, fusion and fusion can be used to convert data in the schema (format conversion when initializing and submitting form item values, such as the mutual conversion between time and moment objects) | `boolean` | `false` |
 
 ### SchemaItem
 | Property | Description | Type | Default |

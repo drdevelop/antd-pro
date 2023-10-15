@@ -94,6 +94,9 @@ toc: content
 | groupsRender | 所有分组的结合渲染器（参数为所有schema渲染的React节点） | ` (child: React.ReactNode) => React.ReactNode` | `--` |
 | globalState | 提供给schema的数据 | `PlainObject` | `{}` |
 | components | 注册的组件集合 | `{ [key: string]: React.ReactNode; }` | `--` |
+| hybird | 结合现有表单使用（此时你可以把SchemaForm作为你原先表单的一部分嵌入式使用） | `boolean` | `false` |
+| enableValueAtomize | 开启表单项数据原子化转换能力，开启后schema里就可以用fusion和fission转换数据了（表单项value初始化和提交时转换格式，例如时间与moment对象间的互转） | `boolean` | `false` |
+
 
 ### SchemaItem
 | 属性 | 说明 | 类型 | 默认值 |
