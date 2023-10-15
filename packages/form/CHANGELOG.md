@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.4.0...antd-pro-schema-form@1.5.0) (2023-10-15)
+
+
+### Features
+
+* add SchemeForm Embedded Old Form ability ([981164c](https://github.com/drdevelop/antd-pro/commit/981164cb0f1421242993d67004ce15b1fb398f7e))
+* If the component pointed to by the schema form item type is not registered, print a list of registered component names ([03e4195](https://github.com/drdevelop/antd-pro/commit/03e41957c638c3d75b1b53ec0bfb8709999cdc1b))
+
+
+
+
+
 # [1.4.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.3.0...antd-pro-schema-form@1.4.0) (2023-09-26)
 
 
