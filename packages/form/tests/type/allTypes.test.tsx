@@ -1,5 +1,5 @@
 import React from 'react';
-import SchemaForm from '../../src';
+import SchemaForm, { Schema } from '../../src';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
@@ -12,7 +12,7 @@ function TestComponent() {
     value: 2,
   }];
 
-  const schema: any = [{
+  const schema: Schema = [{
     fieldName: 'input',
     label: 'input',
     type: 'input',

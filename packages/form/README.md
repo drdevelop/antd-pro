@@ -37,12 +37,12 @@ pnpm add antd-pro-schema-form
 ```tsx
 import React from 'react';
 import { Form, Button } from 'antd';
-import SchemaForm from 'antd-pro-schema-form';
+import SchemaForm, { Schema } from 'antd-pro-schema-form';
 
 export default () => {
   const [formRef] = Form.useForm();
 
-  const schema = [{
+  const schema: Schema = [{
     fieldName: 'title',
     label: 'title',
     type: 'input',
@@ -67,12 +67,12 @@ export default () => {
 ```tsx
 import React from 'react';
 import { Form, Button } from 'antd';
-import SchemaForm from 'antd-pro-schema-form';
+import SchemaForm, { Schema, SchemaGroups } from 'antd-pro-schema-form';
 
 export default () => {
   const [formInstance] = Form.useForm();
 
-  const schema = {
+  const schema: Schema = {
     title: {
       fieldName: 'title',
       label: 'title',
@@ -81,7 +81,7 @@ export default () => {
       rules: [{ required: true, message: 'Please input title' }]
     }
   };
-  const schemaGroups = [{
+  const schemaGroups: SchemaGroups = [{
     list: [
       'title',
     ]
@@ -105,14 +105,14 @@ export default () => {
 ### Convert form item value when initialize or submit
 ```tsx
   import React, { useRef, useEffect } from 'react';
-  import SchemaForm, { RefCurrent } from 'antd-pro-schema-form';
+  import SchemaForm, { RefCurrent, Schema } from 'antd-pro-schema-form';
   import dayjs from 'dayjs';
   import { Button, Form } from 'antd';
 
   export default () => {
     const formRef = useRef<RefCurrent>();
 
-    const schema = [{
+    const schema: Schema = [{
       fieldName: 'date',
       label: 'date',
       type: 'datePicker',

@@ -1,5 +1,5 @@
 import React from 'react';
-import SchemaForm from '../../src';
+import SchemaForm, { Schema } from '../../src';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Form, Input } from 'antd';
@@ -14,7 +14,7 @@ function TestCustomComponent() {
     </div>
   );
 
-  const schema: any = [{
+  const schema: Schema = [{
     fieldName: 'custom',
     label: 'custom input',
     type: 'custom',
