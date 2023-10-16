@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.5.0...antd-pro-schema-form@1.5.1) (2023-10-16)
+
+
+### Bug Fixes
+
+* [Type]give function component to property 'component' report error ([85ca756](https://github.com/drdevelop/antd-pro/commit/85ca756897cd61b00e61ca9ace16f0f9dbf6391e))
+* [Type]Schema type did not export from entry ([86e1127](https://github.com/drdevelop/antd-pro/commit/86e112732bd10aca21f54629c7253d684551314d))
+* [Type]SchemaGroups type did not export from entry ([78ebfb1](https://github.com/drdevelop/antd-pro/commit/78ebfb12a40683bbe0382d91836188340274e1af))
+
+
+
+
+
 # [1.5.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.4.0...antd-pro-schema-form@1.5.0) (2023-10-15)
 
 
