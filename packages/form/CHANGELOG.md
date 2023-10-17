@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.5.1...antd-pro-schema-form@1.5.2) (2023-10-17)
+
+
+### Bug Fixes
+
+* onValuesChange not effect when set hybrid: true ([d4685af](https://github.com/drdevelop/antd-pro/commit/d4685afff4465d972e0ee03373eafa1dbbe4b2b5))
+
+
+
+
+
 ## [1.5.1](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.5.0...antd-pro-schema-form@1.5.1) (2023-10-16)
 
 
