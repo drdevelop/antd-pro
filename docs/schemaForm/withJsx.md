@@ -66,12 +66,18 @@ toc: content
       alert(JSON.stringify(form.getFieldsValue()));
     };
 
+    const onValuesChange = (changedValues, allValues) => {
+      // 监听SchemaForm内的表单项改变
+      // values是当前表单项的值，allValues是所有表单项的值包括Form底下的
+      console.log('onValuesChange', changedValues, allValues);
+    };
+
     return (
       <Form form={form}>
         <Form.Item name="exist" label="历史表单项">
           <Input />
         </Form.Item>
-        <SchemaForm hybrid form={form} schema={schema} />
+        <SchemaForm hybrid form={form} schema={schema} onValuesChange={onValuesChange} />
         <Button type="primary" onClick={onSubmit}>
           提交
         </Button>

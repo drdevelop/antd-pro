@@ -1,7 +1,7 @@
 import React, { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { Form } from 'antd';
 import { FormInstance, FormProps } from 'antd/es/form';
-import { Props as FieldRenderProps } from '../FieldRender';
+import { FIELD_CHANGE_EVENT_NAME, Props as FieldRenderProps } from '../FieldRender';
 import { GroupRule } from '../../shared/schema';
 import schemaItemToNode from './schemaItemToNode';
 import { Schema } from '../types';
@@ -9,6 +9,8 @@ import reflectFormInstance from '../Decorator/reflectFormInstance';
 import { fissionValue, fusionValue } from './valueAtomize';
 import usePrevious from '../hooks/usePrevious';
 import { shallowEqual } from '../../shared/helper';
+import ConfigContext from '../Context/configContext';
+import EventEmitter from '../Watcher/EventEmitter';
 
 // @ts-ignore
 // eslint-disable-next-line
@@ -94,6 +96,7 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
     );
   }
 
+  const [configContextValue] = useState(() => ({ event: new EventEmitter() }));
   const [forceRenderKey, setForceRenderKey] = useState<number>(0);
 
   useImperativeHandle(ref, () => ({
@@ -189,6 +192,17 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
     }
   }, [globalState]);
 
+  useEffect(() => {
+    if (!hybrid) return;
+    if (!restFormProps?.onValuesChange) return;
+    const unListen = configContextValue.event.on(FIELD_CHANGE_EVENT_NAME, (fieldName: string) => {
+      const allValues = outerformInstance.getFieldsValue();
+      // mock Form onValuesChange
+      restFormProps.onValuesChange?.({ [fieldName]: allValues[fieldName] }, allValues);
+    });
+    return unListen;
+  }, [hybrid]);
+
   const initialValues = useMemo(() => {
     if (!enableValueAtomize) return parentInitialValues;
     return fusionValue(schema as Schema, parentInitialValues || {});
@@ -210,7 +224,11 @@ function SchemaForm<T = ''>(props: Props<T>, ref: React.Ref<RefCurrent>) {
   );
 
   if (hybrid) {
-    return children;
+    return (
+      <ConfigContext.Provider value={configContextValue}>
+        {children}
+      </ConfigContext.Provider>
+    );
   } else {
     return (
       <Form
