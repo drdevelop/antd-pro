@@ -2,6 +2,7 @@ import { FormInstance } from 'antd/es/form';
 import React from 'react';
 import { LabelInValue } from '../../shared/schema';
 import InnerComponents from '../../components';
+import ConfigContext from '../Context/configContext';
 
 export interface Props<T = ''> {
   style?: React.CSSProperties;
@@ -34,6 +35,8 @@ export interface Props<T = ''> {
   components?: { [key: string]: React.ReactNode | React.FunctionComponent | React.Component };
 }
 
+export const FIELD_CHANGE_EVENT_NAME = 'fieldChange';
+
 const FieldRender: React.FC<Props> = (props) => {
   const {
     placeholder,
@@ -48,13 +51,25 @@ const FieldRender: React.FC<Props> = (props) => {
     data,
     elementSpecProps,
   } = props;
+
+  const { event } = React.useContext(ConfigContext);
+
+  const proxyOnChange = (e: any) => {
+    onChange?.(e);
+    if (event) {
+      // only emit fieldName then let listener to getFieldValue can get value after transform
+      // and don't need judge type of param 'e'
+      event.emit(FIELD_CHANGE_EVENT_NAME, fieldName);
+    }
+  };
+
   const provideProps = {
     placeholder,
     style,
     className,
     id: fieldName,
     value,
-    onChange,
+    onChange: proxyOnChange,
     data,
     ...elementSpecProps,
   };
