@@ -66,12 +66,18 @@ toc: content
       alert(JSON.stringify(form.getFieldsValue()));
     };
 
+    const onValuesChange = (changedValues, allValues) => {
+      // watch fields change of form item in SchemaForm
+      // values present current form item，allValues include all form item under Form
+      console.log('onValuesChange', changedValues, allValues);
+    };
+
     return (
       <Form form={form}>
         <Form.Item name="exist" label="exist form item">
           <Input />
         </Form.Item>
-        <SchemaForm hybrid form={form} schema={schema} />
+        <SchemaForm hybrid form={form} schema={schema} onValuesChange={onValuesChange} />
         <Button type="primary" onClick={onSubmit}>
           submit
         </Button>
