@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.5.2...antd-pro-schema-form@1.5.3) (2023-10-22)
+
+
+### Bug Fixes
+
+* submit data is empty when resolve elementSpecProps.onChange ([a22a58b](https://github.com/drdevelop/antd-pro/commit/a22a58b96e0c61551d794747975446674607b969))
+
+
+
+
+
 ## [1.5.2](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.5.1...antd-pro-schema-form@1.5.2) (2023-10-17)
 
 
