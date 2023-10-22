@@ -56,6 +56,7 @@ const FieldRender: React.FC<Props> = (props) => {
 
   const proxyOnChange = (e: any) => {
     onChange?.(e);
+    elementSpecProps?.onChange?.(e);
     if (event) {
       // only emit fieldName then let listener to getFieldValue can get value after transform
       // and don't need judge type of param 'e'
@@ -69,9 +70,9 @@ const FieldRender: React.FC<Props> = (props) => {
     className,
     id: fieldName,
     value,
-    onChange: proxyOnChange,
     data,
     ...elementSpecProps,
+    onChange: proxyOnChange,
   };
 
   const registeredComponents = {
