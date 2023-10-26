@@ -17,6 +17,10 @@ function TestComponent() {
     label: 'input',
     type: 'input',
   }, {
+    fieldName: 'textarea',
+    label: 'multipleLineInput',
+    type: 'textarea',
+  }, {
     fieldName: 'inputNumber',
     label: 'inputNumber',
     type: 'inputNumber',
