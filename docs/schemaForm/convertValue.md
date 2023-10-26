@@ -14,62 +14,62 @@ toc: content
  * title: 通过enableValueAtomize开关开启表单项值转换能力
  * description: 通过schema的`fusion`函数初始化时将字符串转换成表单项要求的dayjs时间对象
  */
-  import React, { useEffect } from 'react';
-  import { Form, Button } from 'antd'
-  import SchemaForm from 'antd-pro-schema-form';
-  import dayjs from 'dayjs';
+import React, { useEffect } from 'react';
+import { Form, Button } from 'antd'
+import SchemaForm from 'antd-pro-schema-form';
+import dayjs from 'dayjs';
 
-  export default () => {
-    const [form] = Form.useForm();
+export default () => {
+  const [form] = Form.useForm();
 
-    const schema = [{
-      fieldName: 'date',
-      label: '时间',
-      type: 'datePicker',
-      fusion(value) {
-        return dayjs(value);
-      }
-    }, {
-      fieldName: 'date2',
-      label: '时间2',
-      type: 'datePicker',
-      initialValue: '2023-08-08',
-      fusion(value) {
-        return dayjs(value);
-      }
-    }, {
-      fieldName: 'date3',
-      label: '时间3',
-      type: 'datePicker',
-    }]
+  const schema = [{
+    fieldName: 'date',
+    label: '时间',
+    type: 'datePicker',
+    fusion(value) {
+      return dayjs(value);
+    }
+  }, {
+    fieldName: 'date2',
+    label: '时间2',
+    type: 'datePicker',
+    initialValue: '2023-08-08',
+    fusion(value) {
+      return dayjs(value);
+    }
+  }, {
+    fieldName: 'date3',
+    label: '时间3',
+    type: 'datePicker',
+  }]
 
-    useEffect(() => {
-      if (!form) return;
-      // 你可以通过setFieldsValue或者schema的initialValue、或者schemaForm props的initialValues设置初始值，三种方式等价
-      form.setFieldsValue({
-        date: '2023-08-08',
-      })
-    }, [form])
+  useEffect(() => {
+    if (!form) return;
+    // 你可以通过setFieldsValue或者schema的initialValue、或者schemaForm props的initialValues设置初始值，三种方式等价
+    form.setFieldsValue({
+      date: '2023-08-08',
+    })
+  }, [form])
 
-    const onSubmit = () => {
-      alert(form.getFieldsValue());
-    };
-    return (
-      <>
-        <SchemaForm
-          enableValueAtomize
-          initialValues={{
-            date3: dayjs('2023-08-08')
-          }}
-          schema={schema}
-          form={form}
-        />
-        <Button type="primary" onClick={onSubmit}>
-          提交
-        </Button>
-      </>
-    )
-  }
+  const onSubmit = () => {
+    alert(form.getFieldsValue());
+  };
+  return (
+    <>
+      <SchemaForm
+        enableValueAtomize
+        initialValues={{
+          date3: dayjs('2023-08-08')
+        }}
+        schema={schema}
+        form={form}
+      />
+      <Button type="primary" onClick={onSubmit}>
+        提交
+      </Button>
+    </>
+  )
+}
 ```
 
 ## 提交转换表单项数据
@@ -79,34 +79,34 @@ toc: content
  * title: 通过enableValueAtomize开关开启表单项值转换能力
  * description: 通过schema的`fission`函数提交时转换成服务端要求的时间字符串
  */
-  import React, { useRef, useEffect } from 'react';
-  import SchemaForm from 'antd-pro-schema-form';
-  import dayjs from 'dayjs';
-  import { Button, Form } from 'antd';
+import React, { useRef, useEffect } from 'react';
+import SchemaForm from 'antd-pro-schema-form';
+import dayjs from 'dayjs';
+import { Button, Form } from 'antd';
 
-  export default () => {
-    const [form] = Form.useForm();
+export default () => {
+  const [form] = Form.useForm();
 
-    const schema = [{
-      fieldName: 'select',
-      label: '时间',
-      type: 'datePicker',
-      fission(value) {
-        return value.format('YYYY-MM-DD HH:mm:ss');
-      }
-    }];
+  const schema = [{
+    fieldName: 'select',
+    label: '时间',
+    type: 'datePicker',
+    fission(value) {
+      return value.format('YYYY-MM-DD HH:mm:ss');
+    }
+  }];
 
-    const submit = () => {
-      alert(JSON.stringify(form.getFieldsValue()));
-    };
+  const submit = () => {
+    alert(JSON.stringify(form.getFieldsValue()));
+  };
 
-    return (
-      <>
-        <SchemaForm enableValueAtomize form={form} schema={schema} />
-        <Button type="primary" onClick={submit}>提交</Button>
-      </>
-    )
-  }
+  return (
+    <>
+      <SchemaForm enableValueAtomize form={form} schema={schema} />
+      <Button type="primary" onClick={submit}>提交</Button>
+    </>
+  )
+}
 ```
 
 ## API
@@ -122,6 +122,6 @@ toc: content
 | --- | --- | --- | --- |
 | fieldName | 表单字段 | `string` | `--` |
 | label | 表单项名称 | `string` | `--` |
-| type | 表单项组件类型 | `"input" \| "select" \| "switch" \| "multipleSelect" \| "radio" \| "radioButton" \| "treeSelect" \| "datePicker" \| "dateRangePicker" \| "dateTimeRangePicker" \| "timeRangePicker" \| "custom"` | `--` |
+| type | 表单项组件类型 | `"input" \| "textarea" \| "select" \| "switch" \| "multipleSelect" \| "radio" \| "radioButton" \| "treeSelect" \| "datePicker" \| "dateRangePicker" \| "dateTimeRangePicker" \| "timeRangePicker" \| "custom"` | `--` |
 | fusion | 原子聚变<br />(数据初始化时格式化表单项值value，需返回格式化后的值) | `(value: any) => any` | `--` |
 | fission | 原子裂变<br />(提交表单时格式化表单项值value，需返回格式化后的值) | `(value: any) => any` | `--` |

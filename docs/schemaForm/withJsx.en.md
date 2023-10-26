@@ -16,29 +16,29 @@ toc: content
 /**
  * title: before usage(jsx)
 */
-  import React, { useState, useEffect, useMemo } from 'react';
-  import { Form, Button, Input } from 'antd';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Form, Button, Input } from 'antd';
 
-  export default () => {
-    const [form] = Form.useForm();
+export default () => {
+  const [form] = Form.useForm();
 
-    const onSubmit = () => {
-      alert(JSON.stringify(form.getFieldsValue()));
-    };
+  const onSubmit = () => {
+    alert(JSON.stringify(form.getFieldsValue()));
+  };
 
-    return (
-      <>
-        <Form form={form}>
-          <Form.Item name="exist" label="exist form item">
-            <Input />
-          </Form.Item>
-        </Form>
-        <Button type="primary" onClick={onSubmit}>
-          submit
-        </Button>
-      </>
-    )
-  }
+  return (
+    <>
+      <Form form={form}>
+        <Form.Item name="exist" label="exist form item">
+          <Input />
+        </Form.Item>
+      </Form>
+      <Button type="primary" onClick={onSubmit}>
+        submit
+      </Button>
+    </>
+  )
+}
 ```
 
 
@@ -49,41 +49,41 @@ toc: content
  * title: now usage(jsx and schema)
 * description: Not only we has convenient schema render function, but also we can combine esit form item esaily。You only need to render the old form item component as the 'children' of the SchemaForm, this allows for progressive use of SchemaForm, without affecting old form items.<br/>notice:old `properties of Form` need to move to SchemaForm.
 */
-  import React, { useState, useEffect, useMemo } from 'react';
-  import { Form, Button, Input } from 'antd';
-  import SchemaForm from 'antd-pro-schema-form';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Form, Button, Input } from 'antd';
+import SchemaForm from 'antd-pro-schema-form';
 
-  export default () => {
-    const [form] = Form.useForm();
-    const schema = useMemo(() => ([{
-      fieldName: 'title',
-      label: 'schema title',
-      type: 'input',
-      placeholder: 'please input',
-      rules: [{ required: true, message: 'please input title' }]
-    }]), [])
-    const onSubmit = () => {
-      alert(JSON.stringify(form.getFieldsValue()));
-    };
+export default () => {
+  const [form] = Form.useForm();
+  const schema = useMemo(() => ([{
+    fieldName: 'title',
+    label: 'schema title',
+    type: 'input',
+    placeholder: 'please input',
+    rules: [{ required: true, message: 'please input title' }]
+  }]), [])
+  const onSubmit = () => {
+    alert(JSON.stringify(form.getFieldsValue()));
+  };
 
-    const onValuesChange = (changedValues, allValues) => {
-      // watch fields change of form item in SchemaForm
-      // values present current form item，allValues include all form item under Form
-      console.log('onValuesChange', changedValues, allValues);
-    };
+  const onValuesChange = (changedValues, allValues) => {
+    // watch fields change of form item in SchemaForm
+    // values present current form item，allValues include all form item under Form
+    console.log('onValuesChange', changedValues, allValues);
+  };
 
-    return (
-      <Form form={form}>
-        <Form.Item name="exist" label="exist form item">
-          <Input />
-        </Form.Item>
-        <SchemaForm hybrid form={form} schema={schema} onValuesChange={onValuesChange} />
-        <Button type="primary" onClick={onSubmit}>
-          submit
-        </Button>
-      </Form>
-    )
-  }
+  return (
+    <Form form={form}>
+      <Form.Item name="exist" label="exist form item">
+        <Input />
+      </Form.Item>
+      <SchemaForm hybrid form={form} schema={schema} onValuesChange={onValuesChange} />
+      <Button type="primary" onClick={onSubmit}>
+        submit
+      </Button>
+    </Form>
+  )
+}
 ```
 
 ## Particular attention
@@ -95,75 +95,75 @@ At this point, you can try the following two ways to preserve the atomization co
 
 ### 1. get submit data from form.getFieldsValue()
 ```tsx
-  import React, { useState, useEffect, useMemo } from 'react';
-  import { Form, Button, Input } from 'antd';
-  import SchemaForm from 'antd-pro-schema-form';
-  import moment from 'moment';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Form, Button, Input } from 'antd';
+import SchemaForm from 'antd-pro-schema-form';
+import moment from 'moment';
 
-  export default () => {
-    const [form] = Form.useForm();
-    const schema = useMemo(() => ([{
-      fieldName: 'title',
-      label: 'schema title',
-      type: 'datePicker',
-      placeholder: 'input',
-      rules: [{ required: true, message: 'please input title' }],
-      fission(value) {
-        return value.format('YYYY-MM-DD HH:mm:ss');
-      },
-    }]), [])
-    const onSubmit = (values) => {
-      alert(JSON.stringify(form.getFieldsValue()));
-    };
+export default () => {
+  const [form] = Form.useForm();
+  const schema = useMemo(() => ([{
+    fieldName: 'title',
+    label: 'schema title',
+    type: 'datePicker',
+    placeholder: 'input',
+    rules: [{ required: true, message: 'please input title' }],
+    fission(value) {
+      return value.format('YYYY-MM-DD HH:mm:ss');
+    },
+  }]), [])
+  const onSubmit = (values) => {
+    alert(JSON.stringify(form.getFieldsValue()));
+  };
 
-    return (
-      <Form form={form} onFinish={onSubmit}>
-        <Form.Item name="exist" label="exist form item">
-          <Input />
-        </Form.Item>
-        <SchemaForm hybrid enableValueAtomize form={form} schema={schema} />
-        <Button type="primary" htmlType="submit">
-          submit
-        </Button>
-      </Form>
-    )
-  }
+  return (
+    <Form form={form} onFinish={onSubmit}>
+      <Form.Item name="exist" label="exist form item">
+        <Input />
+      </Form.Item>
+      <SchemaForm hybrid enableValueAtomize form={form} schema={schema} />
+      <Button type="primary" htmlType="submit">
+        submit
+      </Button>
+    </Form>
+  )
+}
 ```
 
 ### 2. transform data by fission of SchemaForm ref before submit
 ```tsx
-  import React, { useState, useEffect, useMemo, useRef } from 'react';
-  import { Form, Button, Input } from 'antd';
-  import SchemaForm from 'antd-pro-schema-form';
-  import moment from 'moment';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { Form, Button, Input } from 'antd';
+import SchemaForm from 'antd-pro-schema-form';
+import moment from 'moment';
 
-  export default () => {
-    const [form] = Form.useForm();
-    const schemaFormRef = useRef<RefCurrent>();
-    const schema = useMemo(() => ([{
-      fieldName: 'title',
-      label: 'schema title',
-      type: 'datePicker',
-      placeholder: 'input',
-      rules: [{ required: true, message: 'please input title' }],
-      fission(value) {
-        return value.format('YYYY-MM-DD HH:mm:ss');
-      },
-    }]), [])
-    const onSubmit = (values) => {
-      alert(JSON.stringify(schemaFormRef.current.fission(values)));
-    };
+export default () => {
+  const [form] = Form.useForm();
+  const schemaFormRef = useRef<RefCurrent>();
+  const schema = useMemo(() => ([{
+    fieldName: 'title',
+    label: 'schema title',
+    type: 'datePicker',
+    placeholder: 'input',
+    rules: [{ required: true, message: 'please input title' }],
+    fission(value) {
+      return value.format('YYYY-MM-DD HH:mm:ss');
+    },
+  }]), [])
+  const onSubmit = (values) => {
+    alert(JSON.stringify(schemaFormRef.current.fission(values)));
+  };
 
-    return (
-      <Form form={form} onFinish={onSubmit}>
-        <Form.Item name="exist" label="exist form item">
-          <Input />
-        </Form.Item>
-        <SchemaForm hybrid enableValueAtomize ref={schemaFormRef} form={form} schema={schema} />
-        <Button type="primary" htmlType="submit">
-          submit
-        </Button>
-      </Form>
-    )
-  }
+  return (
+    <Form form={form} onFinish={onSubmit}>
+      <Form.Item name="exist" label="exist form item">
+        <Input />
+      </Form.Item>
+      <SchemaForm hybrid enableValueAtomize ref={schemaFormRef} form={form} schema={schema} />
+      <Button type="primary" htmlType="submit">
+        submit
+      </Button>
+    </Form>
+  )
+}
 ```

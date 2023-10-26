@@ -13,33 +13,33 @@ toc: content
  * title: render
 * description: The most comprehensive form items can be found in [explore more](#/en/schema-form/register-components#all-internal-components)
 */
-  import React from 'react';
-  import { Form, Button } from 'antd';
-  import SchemaForm from 'antd-pro-schema-form';
+import React from 'react';
+import { Form, Button } from 'antd';
+import SchemaForm from 'antd-pro-schema-form';
 
-  export default () => {
-    const [formRef] = Form.useForm();
+export default () => {
+  const [formRef] = Form.useForm();
 
-    const schema = [{
-      fieldName: 'title',
-      label: 'title',
-      type: 'input',
-      placeholder: 'please input',
-      rules: [{ required: true, message: 'Please input title' }]
-    }]
-    const onSubmit = () => {
-      console.log('formRef', formRef.current)
-      alert(formRef.current.getFieldsValue());
-    };
-    return (
-      <>
-        <SchemaForm form={formRef} schema={schema} />
-        <Button type="primary" onClick={onSubmit}>
-          Submit
-        </Button>
-      </>
-    )
-  }
+  const schema = [{
+    fieldName: 'title',
+    label: 'title',
+    type: 'input',
+    placeholder: 'please input',
+    rules: [{ required: true, message: 'Please input title' }]
+  }]
+  const onSubmit = () => {
+    console.log('formRef', formRef.current)
+    alert(formRef.current.getFieldsValue());
+  };
+  return (
+    <>
+      <SchemaForm form={formRef} schema={schema} />
+      <Button type="primary" onClick={onSubmit}>
+        Submit
+      </Button>
+    </>
+  )
+}
 ```
 
 ## group schema usage
@@ -49,40 +49,40 @@ toc: content
  * title: schemaGroups indicate to use the form schema as a dictionary, group fieldNames in list for rendering
  * description: notice:The schema needs to be in object format, [click me to explore more](#/en/schema-form/group-schema#schemaformprops)
  */
-  import React from 'react';
-  import { Form, Button } from 'antd';
-  import SchemaForm from 'antd-pro-schema-form';
+import React from 'react';
+import { Form, Button } from 'antd';
+import SchemaForm from 'antd-pro-schema-form';
 
-  export default () => {
-    const [form] = Form.useForm();
+export default () => {
+  const [form] = Form.useForm();
 
-    const schema = {
-      title: {
-        fieldName: 'title',
-        label: 'title',
-        type: 'input',
-        placeholder: 'please input',
-        rules: [{ required: true, message: 'Please input title' }]
-      }
-    };
-    const schemaGroups = [{
-      list: [
-        'title',
-      ]
-    }];
+  const schema = {
+    title: {
+      fieldName: 'title',
+      label: 'title',
+      type: 'input',
+      placeholder: 'please input',
+      rules: [{ required: true, message: 'Please input title' }]
+    }
+  };
+  const schemaGroups = [{
+    list: [
+      'title',
+    ]
+  }];
 
-    const onSubmit = () => {
-      alert(JSON.stringify(form.getFieldsValue()));
-    };
-    return (
-      <>
-        <SchemaForm form={form} schema={schema} schemaGroups={schemaGroups} />
-        <Button type="primary" onClick={onSubmit}>
-          Submit
-        </Button>
-      </>
-    )
-  }
+  const onSubmit = () => {
+    alert(JSON.stringify(form.getFieldsValue()));
+  };
+  return (
+    <>
+      <SchemaForm form={form} schema={schema} schemaGroups={schemaGroups} />
+      <Button type="primary" onClick={onSubmit}>
+        Submit
+      </Button>
+    </>
+  )
+}
 ```
 
 ## API
@@ -106,7 +106,7 @@ toc: content
 | --- | --- | --- | --- |
 | fieldName | form item field name | `string` | `--` |
 | label | form item label | `string` | `--` |
-| type | form item child component type | `"input" \| "select" \| "switch" \| "multipleSelect" \| "radio" \| "radioButton" \| "treeSelect" \| "datePicker" \| "dateRangePicker" \| "dateTimeRangePicker" \| "timeRangePicker" \| "custom"` | `--` |
+| type | form item child component type | `"input" \| "textarea" \| "select" \| "switch" \| "multipleSelect" \| "radio" \| "radioButton" \| "treeSelect" \| "datePicker" \| "dateRangePicker" \| "dateTimeRangePicker" \| "timeRangePicker" \| "custom"` | `--` |
 | dependencies | set dependencies fields for form item linkage | `string[]` | `--` |
 | component | custom component(need use with `type: 'custom'`) | `React.ReactNode \| ((form: FormInstance) => null \| SchemaItem)` | `(required)` |
 | data | form item data | `{ label: string; value: any; }[]` | `--` |

@@ -13,31 +13,31 @@ toc: content
  * title: 渲染
 * description: 更全的表单项见[探索更多](#/schema-form/register-components#所有内置组件示例)
 */
-  import React from 'react';
-  import { Form, Button } from 'antd';
-  import SchemaForm from 'antd-pro-schema-form';
+import React from 'react';
+import { Form, Button } from 'antd';
+import SchemaForm from 'antd-pro-schema-form';
 
-  export default () => {
-    const [form] = Form.useForm();
-    const schema = [{
-      fieldName: 'title',
-      label: '标题',
-      type: 'input',
-      placeholder: '请输入',
-      rules: [{ required: true, message: '请输入标题' }]
-    }]
-    const onSubmit = () => {
-      alert(JSON.stringify(form.getFieldsValue()));
-    };
-    return (
-      <>
-        <SchemaForm form={form} schema={schema} />
-        <Button type="primary" onClick={onSubmit}>
-          提交
-        </Button>
-      </>
-    )
-  }
+export default () => {
+  const [form] = Form.useForm();
+  const schema = [{
+    fieldName: 'title',
+    label: '标题',
+    type: 'input',
+    placeholder: '请输入',
+    rules: [{ required: true, message: '请输入标题' }]
+  }]
+  const onSubmit = () => {
+    alert(JSON.stringify(form.getFieldsValue()));
+  };
+  return (
+    <>
+      <SchemaForm form={form} schema={schema} />
+      <Button type="primary" onClick={onSubmit}>
+        提交
+      </Button>
+    </>
+  )
+}
 ```
 
 ## 分组schema表单
@@ -47,38 +47,38 @@ toc: content
  * title: schemaGroups表示要将表单schema作为一个字典，里面的字段进行分组渲染
  * description: 注意：此时schema需为object对象形式，[点我探索更多](#/schema-form/group-schema#schemaformprops)
  */
-  import React from 'react';
-  import { Form, Button } from 'antd';
-  import SchemaForm from 'antd-pro-schema-form';
+import React from 'react';
+import { Form, Button } from 'antd';
+import SchemaForm from 'antd-pro-schema-form';
 
-  export default () => {
-    const [form] = Form.useForm();
-    const schema = {
-      title: {
-        fieldName: 'title',
-        label: '分组schema标题',
-        type: 'input',
-        placeholder: '请输入',
-        rules: [{ required: true, message: '请输入标题' }],
-      }
-    };
-    const schemaGroups = [{
-      list: [
-        'title',
-      ]
-    }];
-    const onSubmit = () => {
-      alert(JSON.stringify(form.getFieldsValue()));
-    };
-    return (
-      <>
-        <SchemaForm form={form} schema={schema} schemaGroups={schemaGroups} />
-        <Button type="primary" onClick={onSubmit}>
-          提交
-        </Button>
-      </>
-    )
-  }
+export default () => {
+  const [form] = Form.useForm();
+  const schema = {
+    title: {
+      fieldName: 'title',
+      label: '分组schema标题',
+      type: 'input',
+      placeholder: '请输入',
+      rules: [{ required: true, message: '请输入标题' }],
+    }
+  };
+  const schemaGroups = [{
+    list: [
+      'title',
+    ]
+  }];
+  const onSubmit = () => {
+    alert(JSON.stringify(form.getFieldsValue()));
+  };
+  return (
+    <>
+      <SchemaForm form={form} schema={schema} schemaGroups={schemaGroups} />
+      <Button type="primary" onClick={onSubmit}>
+        提交
+      </Button>
+    </>
+  )
+}
 ```
 
 ## API
@@ -103,7 +103,7 @@ toc: content
 | --- | --- | --- | --- |
 | fieldName | 表单字段 | `string` | `--` |
 | label | 表单项名称 | `string` | `--` |
-| type | 表单项组件类型 | `"input" \| "select" \| "switch" \| "multipleSelect" \| "radio" \| "radioButton" \| "treeSelect" \| "datePicker" \| "dateRangePicker" \| "dateTimeRangePicker" \| "timeRangePicker" \| "custom"` | `--` |
+| type | 表单项组件类型 | `"input" \| "textarea" \| "select" \| "switch" \| "multipleSelect" \| "radio" \| "radioButton" \| "treeSelect" \| "datePicker" \| "dateRangePicker" \| "dateTimeRangePicker" \| "timeRangePicker" \| "custom"` | `--` |
 | dependencies | 设置依赖的字段，用于表单联动 | `string[]` | `--` |
 | component | 自定义组件（请配合`type: 'custom'`使用） | `React.ReactNode \| ((form: FormInstance) => null \| SchemaItem)` | `（必选）` |
 | data | 表单项数据 | `{ label: string; value: any; }[]` | `--` |
