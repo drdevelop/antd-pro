@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.5.3...antd-pro-schema-form@1.6.0) (2023-10-26)
+
+
+### Features
+
+* add textarea as innerComponent ([5f3ca82](https://github.com/drdevelop/antd-pro/commit/5f3ca82bb2c619466593c8daedef68a9d074d95d))
+
+
+
+
+
 ## [1.5.3](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.5.2...antd-pro-schema-form@1.5.3) (2023-10-22)
 
 
