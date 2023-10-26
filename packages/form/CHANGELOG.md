@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.6.0...antd-pro-schema-form@1.6.1) (2023-10-26)
+
+
+### Bug Fixes
+
+* any inner type Component show error display name is 'MultipleSelect' ([1f6e4e2](https://github.com/drdevelop/antd-pro/commit/1f6e4e2c54acea560e6d636c626b6c3db05b10b6))
+
+
+
+
+
 # [1.6.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.5.3...antd-pro-schema-form@1.6.0) (2023-10-26)
 
 
