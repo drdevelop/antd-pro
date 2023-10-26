@@ -57,6 +57,7 @@ const ProRadioButton = withFieldDefault(ProRadio, (props: FieldProps) => ({
 
 const InnerComponents = {
   input: Input,
+  textarea: Input.TextArea,
   /* todo: remove as any type
     fix The inferred type of 'InnerComponents' cannot be named without a reference to
     '.pnpm/rc-input-number@8.0.3_react-dom@18.2.0_react@18.2.0/node_modules/rc-input-number'.
