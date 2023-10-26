@@ -9,7 +9,7 @@ const withFieldDefault = (Comp, defaultProps) => {
     };
     return <Comp {...newProps} />;
   };
-  HOC.displayName = 'MultipleSelect';
+  HOC.displayName = `withFieldDefault${Comp.displayName ? `_${Comp.displayName}` : ''}`;
   return HOC;
 };
 
