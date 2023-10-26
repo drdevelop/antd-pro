@@ -29,6 +29,10 @@ toc: content
       label: '输入框',
       type: 'input',
     }, {
+      fieldName: 'textarea',
+      label: '多行输入框',
+      type: 'textarea',
+    }, {
       fieldName: 'inputNumber',
       label: '数字输入框',
       type: 'inputNumber',
