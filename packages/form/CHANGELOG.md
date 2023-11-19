@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.6.1...antd-pro-schema-form@1.7.0) (2023-11-19)
+
+
+### Features
+
+* provide stringifySchema for server save, provide parseSchema for parse schema str from server ([29e2772](https://github.com/drdevelop/antd-pro/commit/29e27726ed66ce33b4f0e557eaa204aa14d38ca1))
+
+
+
+
+
 ## [1.6.1](https://github.com/drdevelop/antd-pro/compare/antd-pro-schema-form@1.6.0...antd-pro-schema-form@1.6.1) (2023-10-26)
 
 
