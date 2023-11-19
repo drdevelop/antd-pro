@@ -8,3 +8,5 @@ export type SchemaGroups<T = ''> = Props<T>['schemaGroups'];
 export { default } from './core';
 
 export { registerComponent, registerComponents } from './components';
+
+export { stringifySchema, parseSchema } from './shared/schemaTool';
