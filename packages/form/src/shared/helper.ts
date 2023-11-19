@@ -2,6 +2,14 @@ export function isArray(value: any) {
   return (value instanceof Array);
 }
 
+export function isRegExp(value: any) {
+  return Object.prototype.toString.call(value) === '[object RegExp]';
+}
+
+export function isFunction(value: any) {
+  return typeof value === 'function';
+}
+
 export function genIndexArrayByLen(len: number) {
   const arr: number[] = [];
   for (let i = 0; i < len; i++) {
